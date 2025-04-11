@@ -1,0 +1,262 @@
+/* General Styles */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #2C3E50;
+    line-height: 1.6;
+    background-color: #F9F5E0;
+    overflow-x: hidden;
+  }
+
+  /* Savannah Animation */
+  @keyframes moveClouds {
+    0% { background-position: 0 0; }
+    100% { background-position: 100% 0; }
+  }
+
+  .savannah-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://i.imgur.com/JYjQbWn.png') repeat-x;
+    background-size: auto 100%;
+    animation: moveClouds 60s linear infinite;
+    z-index: -1;
+    opacity: 0.3;
+  }
+
+  /* Baobab Tree Animation */
+  .baobab {
+    position: fixed;
+    bottom: 0;
+    right: 10%;
+    height: 300px;
+    z-index: -1;
+    opacity: 0.8;
+  }
+
+  /* Header/Nav */
+  header {
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem 2rem;
+    position: relative;
+  }
+
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo img {
+    height: 60px;
+  }
+
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: #2C3E50;
+    font-weight: 600;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover {
+    color: #E67E22;
+  }
+
+  .cta-button {
+    background-color: #27AE60;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    font-family: 'Baloo 2', cursive;
+    transition: transform 0.3s, background-color 0.3s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+
+  .cta-button:hover {
+    background-color: #2ECC71;
+    transform: translateY(-2px);
+  }
+
+  /* Hero Section */
+  .hero {
+    display: flex;
+    padding: 6rem 2rem;
+    align-items: center;
+    position: relative;
+  }
+
+  .hero-content {
+    flex: 1;
+    padding-right: 2rem;
+    z-index: 1;
+  }
+
+  .hero-content h1 {
+    font-size: 3rem;
+    color: #16A085;
+    margin-bottom: 1rem;
+    font-family: 'Baloo 2', cursive;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #7F8C8D;
+  }
+
+  .hero-image {
+    flex: 1;
+    position: relative;
+  }
+
+  .hero-image img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transform: rotate(3deg);
+    transition: transform 0.5s;
+  }
+
+  .hero-image img:hover {
+    transform: rotate(0deg) scale(1.02);
+  }
+
+  /* Features Section */
+  .features {
+    padding: 6rem 2rem;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 30px;
+    margin: 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .features::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://i.imgur.com/5bPhT8W.png') repeat;
+    opacity: 0.1;
+    z-index: -1;
+  }
+
+  .features h2 {
+    color: #D35400;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    font-family: 'Baloo 2', cursive;
+  }
+
+  .feature-cards {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    transition: transform 0.3s;
+    border: 2px solid #F1C40F;
+  }
+
+  .card:hover {
+    transform: translateY(-10px);
+  }
+
+  .card img {
+    height: 80px;
+    margin-bottom: 1rem;
+  }
+
+  .card h3 {
+    color: #16A085;
+    font-family: 'Baloo 2', cursive;
+  }
+
+  /* Footer */
+  footer {
+    background-color: #2C3E50;
+    color: white;
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative;
+  }
+
+  .footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .footer-links {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+  }
+
+  .footer-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .footer-links a:hover {
+    color: #F1C40F;
+  }
+
+  .elephant {
+    position: absolute;
+    bottom: 0;
+    left: 5%;
+    height: 100px;
+    opacity: 0.8;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .hero {
+      flex-direction: column;
+      padding: 4rem 1rem;
+    }
+    
+    .hero-content {
+      padding-right: 0;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    
+    .feature-cards {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .card {
+      width: 80%;
+    }
+  }
