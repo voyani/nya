@@ -260,3 +260,260 @@ body {
       width: 80%;
     }
   }
+  /* ===== Mobile-First Responsive Design ===== */
+/* Base styles (applied to all screens) */
+body {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {
+    body {
+        font-size: 17px;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+    body {
+        font-size: 18px;
+    }
+    .hero {
+        flex-direction: row;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    body {
+        font-size: 19px;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    body {
+        font-size: 20px;
+    }
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 767px) {
+    .hero {
+        flex-direction: column;
+        padding: 2rem 1rem;
+    }
+    
+    .hero-content, .hero-image {
+        flex: 1 1 100%;
+        padding: 0;
+    }
+    
+    .nav-links {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .cta-button {
+        padding: 0.8rem 1.2rem;
+        font-size: 0.9rem;
+    }
+    
+    .feature-cards {
+        flex-direction: column;
+    }
+    
+    .card {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+}
+
+/* Touch target sizes for mobile */
+button, .cta-button {
+    min-width: 44px;
+    min-height: 44px;
+}
+
+/* Prevent text size inflation on mobile */
+html {
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+/* Animated Background */
+body {
+    position: relative;
+    overflow-x: hidden;
+    background: linear-gradient(to bottom, #87CEEB 0%, #E0F7FA 50%, #F5F5DC 100%);
+  }
+  
+  /* Animated Sun */
+  .sun {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 80px;
+    height: 80px;
+    background: #FFD700;
+    border-radius: 50%;
+    box-shadow: 0 0 40px #FFEB3B;
+    animation: sunrise 15s infinite alternate;
+    z-index: -1;
+  }
+  
+  @keyframes sunrise {
+    0% { transform: translateY(0); opacity: 0.8; }
+    50% { transform: translateY(-20px); opacity: 1; }
+    100% { transform: translateY(0); opacity: 0.8; }
+  }
+  
+  /* Moving Clouds */
+  .cloud {
+    position: fixed;
+    background: white;
+    border-radius: 50%;
+    z-index: -1;
+    opacity: 0.8;
+    animation: moveClouds linear infinite;
+  }
+  
+  .cloud-1 {
+    top: 15%;
+    width: 100px;
+    height: 60px;
+    animation-duration: 60s;
+  }
+  
+  .cloud-2 {
+    top: 25%;
+    width: 150px;
+    height: 80px;
+    animation-duration: 80s;
+  }
+  
+  @keyframes moveClouds {
+    0% { transform: translateX(-200px); }
+    100% { transform: translateX(calc(100vw + 200px)); }
+  }
+  
+  /* Animated Animals */
+  .animal {
+    position: fixed;
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: -1;
+  }
+  
+  .elephant {
+    bottom: 10px;
+    left: -100px;
+    width: 150px;
+    height: 100px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M85,50c0,15-15,25-35,25s-35-10-35-25s15-25,35-25S85,35,85,50z" fill="gray"/><circle cx="70" cy="40" r="5" fill="black"/></svg>');
+    animation: walk 30s linear infinite;
+  }
+  
+  @keyframes walk {
+    0% { transform: translateX(-100px); }
+    100% { transform: translateX(calc(100vw + 100px)); }
+  }
+  /* Add after existing CSS */
+.giraffe {
+    bottom: 100px;
+    left: -120px;
+    width: 80px;
+    height: 150px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="..."><!-- giraffe SVG --></svg>');
+    animation: walk 40s linear infinite 5s;
+  }
+  body {
+    animation: dayNight 60s infinite;
+  }
+  
+  @keyframes dayNight {
+    0%, 100% { background: #87CEEB; } /* Day */
+    50% { background: #0F2027; } /* Night */
+  }
+  /* Safari-style Acacia Tree */
+.tree {
+    position: fixed;
+    bottom: 0;
+    width: 100px;
+    height: 200px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 100"><path d="M25 100 L20 40 Q25 20 30 40 L25 100 M15 60 Q5 30 10 20 M35 50 Q45 25 40 15" stroke="%23355E3B" stroke-width="2" fill="none"/></svg>');
+    background-repeat: no-repeat;
+    z-index: -1;
+  }
+  
+  /* Realistic Elephant */
+  .elephant {
+    position: fixed;
+    bottom: 10px;
+    width: 180px;
+    height: 120px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 120"><path d="M130 60Q140 30 120 20Q90 5 70 20Q50 40 40 60Q20 80 30 100Q40 110 60 110Q80 115 100 110Q120 105 140 100Q150 80 130 60Z" fill="%23616161"/><circle cx="110" cy="50" r="5" fill="black"/><path d="M70 20Q65 10 50 15" stroke="black" stroke-width="2" fill="none"/></svg>');
+    animation: elephantWalk 40s linear infinite;
+  }
+  
+  @keyframes elephantWalk {
+    0% { left: -200px; transform: scaleX(1); }
+    49% { transform: scaleX(1); }
+    50% { left: 100%; transform: scaleX(-1); }
+    99% { transform: scaleX(-1); }
+    100% { left: -200px; transform: scaleX(1); }
+  }
+  
+  /* Animated Giraffe */
+  .giraffe {
+    position: fixed;
+    bottom: 10px;
+    width: 100px;
+    height: 200px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 200"><path d="M50 200 L55 150 Q60 120 65 150 L60 200 M65 150 Q70 100 75 50 Q80 20 85 10 Q90 0 95 5 Q100 15 90 20 Q85 40 80 50 Q75 100 70 150Z" fill="%23F9A825"/><circle cx="85" cy="15" r="5" fill="%23F9A825"/><circle cx="88" cy="12" r="2" fill="black"/></svg>');
+    animation: giraffeWalk 50s linear infinite 10s;
+  }
+  
+  /* Flying Birds */
+  .bird {
+    position: fixed;
+    width: 40px;
+    height: 30px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30"><path d="M5 15 Q20 -10 35 15 Q20 40 5 15Z" fill="%23333"/></svg>');
+    animation: birdFly 20s linear infinite;
+  }
+  @keyframes giraffeWalk {
+    0% { left: -100px; transform: scaleX(1); }
+    49% { transform: scaleX(1); }
+    50% { left: 100%; transform: scaleX(-1); }
+    99% { transform: scaleX(-1); }
+    100% { left: -100px; transform: scaleX(1); }
+  }
+  
+  @keyframes birdFly {
+    0% { left: -50px; top: 15%; }
+    50% { top: 10%; }
+    100% { left: 100%; top: 15%; }
+  }
+  
+  /* Pulsing Baobab Tree */
+  .baobab {
+    position: fixed;
+    bottom: 0;
+    right: 10%;
+    width: 150px;
+    height: 250px;
+    background-image: url('data:image/svg+xml;utf8,<svg...>...</svg>');
+    animation: pulse 8s infinite alternate;
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(0.98); }
+    100% { transform: scale(1.02); }
+  }
+  .bird:hover {
+    animation-play-state: paused;
+    transform: scale(1.5);
+  }
