@@ -376,4 +376,36 @@ footer {
   color: #E67E22;
   border-bottom: 2px solid #F1C40F;
 }
+/* Card Icon Container */
+.card-icon {
+  position: relative;
+  height: 80px;
+  margin-bottom: 1rem;
+}
+
+/* Bongo Icon Specific Styles */
+.bongo-icon {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid #F1C40F;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  /* Position above card */
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Add drumbeat animation on hover */
+.bongo-icon:hover {
+  animation: drumbeat 0.5s ease infinite alternate;
+  transform: translateX(-50%) scale(1.1);
+}
+
+@keyframes drumbeat {
+  0% { transform: translateX(-50%) rotate(-5deg); }
+  100% { transform: translateX(-50%) rotate(5deg); }
+}
 
