@@ -372,3 +372,8 @@ footer {
   color: #FFF;
   text-shadow: 1px 1px 1px #000;
 }
+.nav-links a.active {
+  color: #E67E22;
+  border-bottom: 2px solid #F1C40F;
+}
+
