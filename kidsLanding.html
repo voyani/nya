@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Baloo+2:wght@600&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --primary-green: #27AE60;
+      --primary-blue: #2980b9; /* Changed from green to blue */
       --accent-orange: #E67E22;
       --sun-yellow: #F1C40F;
       --deep-blue: #2C3E50;
@@ -28,7 +28,7 @@
     }
 
     header {
-      background: var(--primary-green);
+      background: var(--primary-blue); /* Now blue */
       padding: 1rem;
       text-align: center;
       color: white;
@@ -41,16 +41,33 @@
       animation: bounce 2s infinite;
     }
 
+    .nav-links {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 0.5rem;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+    }
+
     .hero {
-      background-image: url('/images/giraffe3.jpg');
+      background-image: url('images/giraffe3.jpg');
       background-size: cover;
       background-position: center;
       background-blend-mode: multiply;
       background-color: rgba(0, 0, 0, 0.4);
       color: #fff;
-      animation: pulse 3s ease-in-out infinite;
       text-align: center;
       padding: 4rem 1rem;
+      min-height: 60vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .hero h2 {
@@ -78,6 +95,7 @@
       transition: 0.4s ease;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
       animation: wiggle 2s infinite;
+      margin: 0 auto;
     }
 
     .cta-button:hover {
@@ -101,8 +119,10 @@
       text-align: center;
       border: 4px dashed var(--sun-yellow);
       box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
-      animation: float 4s ease-in-out infinite;
       transition: 0.3s ease;
+      display: block;
+      text-decoration: none;
+      color: inherit;
     }
 
     .card:hover {
@@ -134,19 +154,9 @@
       50% { transform: translateY(-10px); }
     }
 
-    @keyframes pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: 0.85; }
-    }
-
     @keyframes wiggle {
       0%, 100% { transform: rotate(-3deg); }
       50% { transform: rotate(3deg); }
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
     }
 
     @media (max-width: 768px) {
@@ -157,6 +167,11 @@
       .card h3 {
         font-size: 1.5rem;
       }
+      
+      /* Ensure images load on mobile */
+      .hero {
+        background-image: url('images/giraffe3-mobile.jpg');
+      }
     }
   </style>
 </head>
@@ -165,59 +180,79 @@
   <header>
     <h1>Welcome Kids! 🌍</h1>
     <nav>
-        <ul class = "nav-links">
-            <li><a href="index.html">Home</a></li>
-        </ul>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+      </ul>
     </nav>
   </header>
 
-  <section id="hero-slideshow" class="hero" style="background-image: url('/images/giraffe3.jpg'); background-size: cover; background-position: center; background-blend-mode: multiply; background-color: rgba(0,0,0,0.4); color: #fff; animation: pulse 3s ease-in-out infinite; text-align: center; padding: 4rem 1rem;">
-
+  <section id="hero-slideshow" class="hero">
     <h2>Join the Eco Warrior Tribe!</h2>
     <p>
       Step into the heart of Africa where adventure meets purpose! Discover how every small action—like planting a tree or keeping rivers clean—can make a big difference. Explore, learn, and become a real Eco Warrior for your community and the planet.
     </p>
-    <button class="cta-button">Let’s Go! 🐾</button>
+    <button class="cta-button">Let's Go! 🐾</button>
   </section>
 
   <section class="sections">
-    <div class="card">
+    <a href="animal-adventures.html" class="card">
       <h3>🦁 Animal Adventures</h3>
       <p>Meet Tembo and his friends while learning about lions, giraffes, and more.</p>
-    </div>
-    <div class="card">
+    </a>
+    <a href="eco-games.html" class="card">
       <h3>🎮 Eco Games</h3>
       <p>Play fun games to save water, plant trees, and protect our wildlife.</p>
-    </div>
-    <div class="card">
+    </a>
+    <a href="swahili-stories.html" class="card">
       <h3>📚 Swahili Stories</h3>
       <p>Enjoy magical tales passed down through generations across Africa.</p>
-    </div>
-    <div class="card">
+    </a>
+    <a href="earn-badges.html" class="card">
       <h3>🏅 Earn Badges</h3>
       <p>Complete missions and unlock your Eco Warrior achievements!</p>
-    </div>
+    </a>
   </section>
 
   <footer>
     <p>© 2025 Mazingira Clubs | Learn • Play • Protect</p>
   </footer>
+
   <script>
-    const hero = document.getElementById('hero-slideshow');
-    const images = [
-      '../images/giraffe1.jpg',
-      '../images/giraffe2.jpg',
-      '../images/giraffe3.jpg',
-      '../images/elephant1.jpg'
-    ];
-  
-    let index = 0;
-  
-    setInterval(() => {
-      index = (index + 1) % images.length;
-      hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('${images[index]}')`;
-    }, 5000); // every 5 seconds
+    // Mobile-friendly image loading
+    document.addEventListener('DOMContentLoaded', function() {
+      const hero = document.getElementById('hero-slideshow');
+      const isMobile = window.matchMedia("(max-width: 768px)").matches;
+      
+      // Image paths - update these to your actual image paths
+      const images = isMobile 
+        ? [
+            'images/giraffe3-mobile.jpg',
+            'images/elephant1-mobile.jpg'
+          ]
+        : [
+            'images/elephant1.jpg',
+            'images/rhino1.jpg',
+            'images/cheetah1.jpg'
+          ];
+      
+      // Preload images
+      images.forEach(src => {
+        const img = new Image();
+        img.src = src;
+      });
+      
+      // Set initial background
+      hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('${images[0]}')`;
+      
+      // Start slideshow if not mobile
+      if (!isMobile) {
+        let index = 0;
+        setInterval(() => {
+          index = (index + 1) % images.length;
+          hero.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('${images[index]}')`;
+        }, 5000);
+      }
+    });
   </script>
-  
 </body>
 </html>
