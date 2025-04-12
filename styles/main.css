@@ -13,6 +13,7 @@ body {
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
+  
   /* Optional overlay for better contrast */
   background-color: rgba(0,0,0,0.2);
   background-blend-mode: multiply;
