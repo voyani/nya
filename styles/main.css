@@ -1,519 +1,373 @@
-/* General Styles */
+/* ===== Base Styles ===== */
 body {
-    font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    padding: 0;
-    color: #2C3E50;
-    line-height: 1.6;
-    background-color: #F9F5E0;
-    overflow-x: hidden;
-  }
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #2C3E50;
+  line-height: 1.6;
+  position: relative;
+  overflow-x: hidden;
+  /* Background properties */
+  background-image: url('../images/giraffe3.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  /* Optional overlay for better contrast */
+  background-color: rgba(0,0,0,0.2);
+  background-blend-mode: multiply;
+}
 
-  /* Savannah Animation */
-  @keyframes moveClouds {
-    0% { background-position: 0 0; }
-    100% { background-position: 100% 0; }
-  }
+/* ===== Layout Structure ===== */
+.main-container {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+}
 
-  .savannah-bg {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('https://i.imgur.com/JYjQbWn.png') repeat-x;
-    background-size: auto 100%;
-    animation: moveClouds 60s linear infinite;
-    z-index: -1;
-    opacity: 0.3;
-  }
+.content {
+  flex: 1;
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(2px);
+  z-index: 1;
+}
 
-  /* Baobab Tree Animation */
-  .baobab {
-    position: fixed;
-    bottom: 0;
-    right: 10%;
-    height: 300px;
-    z-index: -1;
-    opacity: 0.8;
-  }
+/* ===== Savannah Animation ===== */
+.savannah-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://i.imgur.com/JYjQbWn.png') repeat-x;
+  background-size: auto 100%;
+  animation: moveClouds 60s linear infinite;
+  z-index: -1;
+  opacity: 0.3;
+}
 
-  /* Header/Nav */
-  header {
-    background-color: rgba(255, 255, 255, 0.9);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 1rem 2rem;
-    position: relative;
-  }
+@keyframes moveClouds {
+  0% { background-position: 0 0; }
+  100% { background-position: 100% 0; }
+}
 
-  nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+/* ===== Header/Nav ===== */
+header {
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem 2rem;
+  position: relative;
+  z-index: 10;
+}
 
-  .logo img {
-    height: 60px;
-  }
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-  .nav-links {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
-  }
+.logo img {
+  height: 60px;
+}
 
-  .nav-links a {
-    text-decoration: none;
-    color: #2C3E50;
-    font-weight: 600;
-    transition: color 0.3s;
-  }
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
 
-  .nav-links a:hover {
-    color: #E67E22;
-  }
+.nav-links a {
+  text-decoration: none;
+  color: #2C3E50;
+  font-weight: 600;
+  transition: color 0.3s;
+}
 
-  .cta-button {
-    background-color: #27AE60;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 30px;
-    cursor: pointer;
-    font-weight: bold;
-    font-family: 'Baloo 2', cursive;
-    transition: transform 0.3s, background-color 0.3s;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  }
+.nav-links a:hover {
+  color: #E67E22;
+}
 
-  .cta-button:hover {
-    background-color: #2ECC71;
-    transform: translateY(-2px);
-  }
+/* ===== Hero Section ===== */
+.hero {
+  display: flex;
+  padding: 6rem 2rem;
+  align-items: center;
+  position: relative;
+  flex-wrap: wrap;
+}
 
-  /* Hero Section */
+.hero-content {
+  flex: 1;
+  min-width: 300px;
+  padding-right: 2rem;
+  z-index: 1;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  color: #16A085;
+  margin-bottom: 1rem;
+  font-family: 'Baloo 2', cursive;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: #7F8C8D;
+}
+
+.hero-image {
+  flex: 1;
+  min-width: 300px;
+  position: relative;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  transform: rotate(3deg);
+  transition: transform 0.5s;
+}
+
+.hero-image img:hover {
+  transform: rotate(0deg) scale(1.02);
+}
+
+/* ===== Fixed Features Section ===== */
+.features-container {
+  width: 100%;
+  padding: 2rem;
+  position: relative;
+}
+
+.features {
+  padding: 4rem 2rem;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 30px;
+  margin: 0 auto;
+  max-width: 1200px;
+  position: relative;
+  overflow: hidden;
+}
+
+.features::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://i.imgur.com/5bPhT8W.png') repeat;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.features h2 {
+  color: #D35400;
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+  font-family: 'Baloo 2', cursive;
+}
+
+.feature-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+  padding: 0 1rem;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  border: 2px solid #F1C40F;
+  margin: 0 auto;
+  max-width: 350px;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card img {
+  height: 80px;
+  margin-bottom: 1rem;
+}
+
+.card h3 {
+  color: #16A085;
+  font-family: 'Baloo 2', cursive;
+}
+
+/* ===== Footer ===== */
+footer {
+  background-color: #2C3E50;
+  color: white;
+  padding: 3rem 2rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-links {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #F1C40F;
+}
+
+/* ===== Decorative Elements ===== */
+.baobab {
+  position: fixed;
+  bottom: 0;
+  right: 10%;
+  height: 300px;
+  z-index: -1;
+  opacity: 0.8;
+}
+
+.elephant {
+  position: absolute;
+  bottom: 0;
+  left: 5%;
+  height: 100px;
+  opacity: 0.8;
+}
+
+.snake-container {
+  width: 50px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background-color: rgba(240, 240, 240, 0.5);
+  overflow: hidden;
+  z-index: 5;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
   .hero {
-    display: flex;
-    padding: 6rem 2rem;
-    align-items: center;
-    position: relative;
-  }
-
-  .hero-content {
-    flex: 1;
-    padding-right: 2rem;
-    z-index: 1;
-  }
-
-  .hero-content h1 {
-    font-size: 3rem;
-    color: #16A085;
-    margin-bottom: 1rem;
-    font-family: 'Baloo 2', cursive;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-  }
-
-  .hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-    color: #7F8C8D;
-  }
-
-  .hero-image {
-    flex: 1;
-    position: relative;
-  }
-
-  .hero-image img {
-    width: 100%;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    transform: rotate(3deg);
-    transition: transform 0.5s;
-  }
-
-  .hero-image img:hover {
-    transform: rotate(0deg) scale(1.02);
-  }
-
-  /* Features Section */
-  .features {
-    padding: 6rem 2rem;
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.7);
-    border-radius: 30px;
-    margin: 2rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .features::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('https://i.imgur.com/5bPhT8W.png') repeat;
-    opacity: 0.1;
-    z-index: -1;
-  }
-
-  .features h2 {
-    color: #D35400;
-    margin-bottom: 3rem;
-    font-size: 2.5rem;
-    font-family: 'Baloo 2', cursive;
-  }
-
-  .feature-cards {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-  }
-
-  .card {
-    background: rgba(255, 255, 255, 0.9);
-    border-radius: 20px;
-    padding: 2rem;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    width: 300px;
-    transition: transform 0.3s;
-    border: 2px solid #F1C40F;
-  }
-
-  .card:hover {
-    transform: translateY(-10px);
-  }
-
-  .card img {
-    height: 80px;
-    margin-bottom: 1rem;
-  }
-
-  .card h3 {
-    color: #16A085;
-    font-family: 'Baloo 2', cursive;
-  }
-
-  /* Footer */
-  footer {
-    background-color: #2C3E50;
-    color: white;
-    padding: 3rem 2rem;
-    text-align: center;
-    position: relative;
-  }
-
-  .footer-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .footer-links {
-    display: flex;
-    list-style: none;
-    gap: 1.5rem;
-  }
-
-  .footer-links a {
-    color: white;
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-
-  .footer-links a:hover {
-    color: #F1C40F;
-  }
-
-  .elephant {
-    position: absolute;
-    bottom: 0;
-    left: 5%;
-    height: 100px;
-    opacity: 0.8;
-  }
-
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .hero {
       flex-direction: column;
       padding: 4rem 1rem;
-    }
-    
-    .hero-content {
+  }
+  
+  .hero-content {
       padding-right: 0;
       margin-bottom: 2rem;
       text-align: center;
-    }
-    
-    .feature-cards {
+  }
+  
+  .nav-links {
+      gap: 1rem;
+  }
+  
+  .feature-cards {
+      grid-template-columns: 1fr;
+  }
+  
+  .footer-content {
       flex-direction: column;
-      align-items: center;
-    }
-    
-    .card {
-      width: 80%;
-    }
   }
-  /* ===== Mobile-First Responsive Design ===== */
-/* Base styles (applied to all screens) */
-body {
-    font-size: 16px;
-    line-height: 1.5;
 }
 
-/* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) {
-    body {
-        font-size: 17px;
-    }
+@media (max-width: 480px) {
+  .hero-content h1 {
+      font-size: 2.2rem;
+  }
+  
+  .hero-content p {
+      font-size: 1rem;
+  }
+  
+  .nav-links {
+      flex-direction: column;
+      gap: 0.5rem;
+  }
+}
+/* ===== Text Color Adjustments for Better Contrast ===== */
+
+/* Main heading */
+.hero-content h1 {
+  color: #FFD700; /* Golden yellow for high contrast */
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Dark shadow for readability */
 }
 
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) {
-    body {
-        font-size: 18px;
-    }
-    .hero {
-        flex-direction: row;
-    }
+/* Subheadings */
+.features h2,
+.card h3 {
+  color: #FFA500; /* Orange for visibility */
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
 }
 
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) {
-    body {
-        font-size: 19px;
-    }
+/* Paragraph text */
+.hero-content p,
+.card p {
+  color: #FFFFFF; /* White for maximum contrast */
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.7);
 }
 
-/* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {
-    body {
-        font-size: 20px;
-    }
+/* Navigation links */
+.nav-links a {
+  color: #FFFFFF;
+  font-weight: 700; /* Bolder text */
+  text-shadow: 1px 1px 1px #000;
 }
 
-/* Mobile-specific adjustments */
-@media (max-width: 767px) {
-    .hero {
-        flex-direction: column;
-        padding: 2rem 1rem;
-    }
-    
-    .hero-content, .hero-image {
-        flex: 1 1 100%;
-        padding: 0;
-    }
-    
-    .nav-links {
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-    
-    .cta-button {
-        padding: 0.8rem 1.2rem;
-        font-size: 0.9rem;
-    }
-    
-    .feature-cards {
-        flex-direction: column;
-    }
-    
-    .card {
-        width: 100%;
-        margin-bottom: 1rem;
-    }
+/* CTA button */
+.cta-button {
+  background-color: #E67E22; /* Bright orange */
+  color: #000000; /* Black text */
+  border: 2px solid #000;
 }
 
-/* Touch target sizes for mobile */
-button, .cta-button {
-    min-width: 44px;
-    min-height: 44px;
+/* Specific section for "Jambo Future Eco-Warriors!" */
+.hero-content h1 {
+  font-size: 3.5rem;
+  color: #FFD700; /* Gold */
+  -webkit-text-stroke: 1px #000; /* Text outline */
+  text-stroke: 1px #000;
 }
 
-/* Prevent text size inflation on mobile */
-html {
-    -webkit-text-size-adjust: 100%;
-    -moz-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-    text-size-adjust: 100%;
+/* Swahili Stories section */
+.features h2 {
+  background-color: rgba(0,0,0,0.5); /* Semi-transparent dark bg */
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  border-radius: 30px;
 }
-/* Animated Background */
-body {
-    position: relative;
-    overflow-x: hidden;
-    background: linear-gradient(to bottom, #87CEEB 0%, #E0F7FA 50%, #F5F5DC 100%);
-  }
-  
-  /* Animated Sun */
-  .sun {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    width: 80px;
-    height: 80px;
-    background: #FFD700;
-    border-radius: 50%;
-    box-shadow: 0 0 40px #FFEB3B;
-    animation: sunrise 15s infinite alternate;
-    z-index: -1;
-  }
-  
-  @keyframes sunrise {
-    0% { transform: translateY(0); opacity: 0.8; }
-    50% { transform: translateY(-20px); opacity: 1; }
-    100% { transform: translateY(0); opacity: 0.8; }
-  }
-  
-  /* Moving Clouds */
-  .cloud {
-    position: fixed;
-    background: white;
-    border-radius: 50%;
-    z-index: -1;
-    opacity: 0.8;
-    animation: moveClouds linear infinite;
-  }
-  
-  .cloud-1 {
-    top: 15%;
-    width: 100px;
-    height: 60px;
-    animation-duration: 60s;
-  }
-  
-  .cloud-2 {
-    top: 25%;
-    width: 150px;
-    height: 80px;
-    animation-duration: 80s;
-  }
-  
-  @keyframes moveClouds {
-    0% { transform: translateX(-200px); }
-    100% { transform: translateX(calc(100vw + 200px)); }
-  }
-  
-  /* Animated Animals */
-  .animal {
-    position: fixed;
-    background-size: contain;
-    background-repeat: no-repeat;
-    z-index: -1;
-  }
-  
-  .elephant {
-    bottom: 10px;
-    left: -100px;
-    width: 150px;
-    height: 100px;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M85,50c0,15-15,25-35,25s-35-10-35-25s15-25,35-25S85,35,85,50z" fill="gray"/><circle cx="70" cy="40" r="5" fill="black"/></svg>');
-    animation: walk 30s linear infinite;
-  }
-  
-  @keyframes walk {
-    0% { transform: translateX(-100px); }
-    100% { transform: translateX(calc(100vw + 100px)); }
-  }
-  /* Add after existing CSS */
-.giraffe {
-    bottom: 100px;
-    left: -120px;
-    width: 80px;
-    height: 150px;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="..."><!-- giraffe SVG --></svg>');
-    animation: walk 40s linear infinite 5s;
-  }
-  body {
-    animation: dayNight 60s infinite;
-  }
-  
-  @keyframes dayNight {
-    0%, 100% { background: #87CEEB; } /* Day */
-    50% { background: #0F2027; } /* Night */
-  }
-  /* Safari-style Acacia Tree */
-.tree {
-    position: fixed;
-    bottom: 0;
-    width: 100px;
-    height: 200px;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 100"><path d="M25 100 L20 40 Q25 20 30 40 L25 100 M15 60 Q5 30 10 20 M35 50 Q45 25 40 15" stroke="%23355E3B" stroke-width="2" fill="none"/></svg>');
-    background-repeat: no-repeat;
-    z-index: -1;
-  }
-  
-  /* Realistic Elephant */
-  .elephant {
-    position: fixed;
-    bottom: 10px;
-    width: 180px;
-    height: 120px;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 120"><path d="M130 60Q140 30 120 20Q90 5 70 20Q50 40 40 60Q20 80 30 100Q40 110 60 110Q80 115 100 110Q120 105 140 100Q150 80 130 60Z" fill="%23616161"/><circle cx="110" cy="50" r="5" fill="black"/><path d="M70 20Q65 10 50 15" stroke="black" stroke-width="2" fill="none"/></svg>');
-    animation: elephantWalk 40s linear infinite;
-  }
-  
-  @keyframes elephantWalk {
-    0% { left: -200px; transform: scaleX(1); }
-    49% { transform: scaleX(1); }
-    50% { left: 100%; transform: scaleX(-1); }
-    99% { transform: scaleX(-1); }
-    100% { left: -200px; transform: scaleX(1); }
-  }
-  
-  /* Animated Giraffe */
-  .giraffe {
-    position: fixed;
-    bottom: 10px;
-    width: 100px;
-    height: 200px;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 200"><path d="M50 200 L55 150 Q60 120 65 150 L60 200 M65 150 Q70 100 75 50 Q80 20 85 10 Q90 0 95 5 Q100 15 90 20 Q85 40 80 50 Q75 100 70 150Z" fill="%23F9A825"/><circle cx="85" cy="15" r="5" fill="%23F9A825"/><circle cx="88" cy="12" r="2" fill="black"/></svg>');
-    animation: giraffeWalk 50s linear infinite 10s;
-  }
-  
-  /* Flying Birds */
-  .bird {
-    position: fixed;
-    width: 40px;
-    height: 30px;
-    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 30"><path d="M5 15 Q20 -10 35 15 Q20 40 5 15Z" fill="%23333"/></svg>');
-    animation: birdFly 20s linear infinite;
-  }
-  @keyframes giraffeWalk {
-    0% { left: -100px; transform: scaleX(1); }
-    49% { transform: scaleX(1); }
-    50% { left: 100%; transform: scaleX(-1); }
-    99% { transform: scaleX(-1); }
-    100% { left: -100px; transform: scaleX(1); }
-  }
-  
-  @keyframes birdFly {
-    0% { left: -50px; top: 15%; }
-    50% { top: 10%; }
-    100% { left: 100%; top: 15%; }
-  }
-  
-  /* Pulsing Baobab Tree */
-  .baobab {
-    position: fixed;
-    bottom: 0;
-    right: 10%;
-    width: 150px;
-    height: 250px;
-    background-image: url('data:image/svg+xml;utf8,<svg...>...</svg>');
-    animation: pulse 8s infinite alternate;
-  }
-  
-  @keyframes pulse {
-    0% { transform: scale(0.98); }
-    100% { transform: scale(1.02); }
-  }
-  .bird:hover {
-    animation-play-state: paused;
-    transform: scale(1.5);
-  }
+
+/* List items (like Baobab Tree) */
+.card ul li {
+  color: #FFF;
+  text-shadow: 1px 1px 1px #000;
+}
