@@ -14,7 +14,7 @@
 
 body {
   margin: 0;
-  background: url('./images/background-jungle.webp') center/cover no-repeat;
+  background: url('/images/onboardingBackground.jpg') center/cover no-repeat;
   background-attachment: scroll;
   font-family: 'Bubblegum Sans', cursive;
   color: white;
