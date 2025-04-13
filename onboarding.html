@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eco Kids Adventure Club | Save the Planet!</title>
+  <link rel="preload" href="images/background-jungle.webp" as="image">
+  <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Comic+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/onboarding.css">
+</head>
+<body>
+  <div class="adventure-container">
+    <div class="cloud-animation"></div>
+    
+    <!-- Step 0: Welcome Screen -->
+    <div class="step welcome-screen">
+      <img src="images/mascot-owl.webp" class="guide-owl" alt="Wise Owl Mascot">
+      <h1>Welcome Eco Explorer! 🌍</h1>
+      <button class="start-btn">Begin Adventure!</button>
+    </div>
+
+    <!-- Step 1: Avatar Selection -->
+    <div class="step hidden" data-step="1">
+      <h2>Choose Your Animal Friend! 🐾</h2>
+      <div class="avatar-grid">
+        <img src="images/avatar-panda.webp" class="avatar" data-animal="panda">
+        <img src="images/avatar-tiger.webp" class="avatar" data-animal="tiger">
+        <img src="images/avatar-parrot.webp" class="avatar" data-animal="parrot">
+      </div>
+      <button class="nav-btn" data-next="2">Next ➔</button>
+    </div>
+
+    <!-- Step 2: Name Selection -->
+    <div class="step hidden" data-step="2">
+      <h2>Pick Your Hero Name! ✨</h2>
+      <div class="name-bubbles">
+        <button class="name-bubble">Forest Guardian</button>
+        <button class="name-bubble">Ocean Protector</button>
+        <button class="name-bubble">Earth Warrior</button>
+      </div>
+      <button class="nav-btn" data-next="3">Continue ➔</button>
+    </div>
+
+    <!-- Step 3: Eco Game -->
+    <div class="step hidden" data-step="3">
+      <h2>Clean Up the Forest! 🌳</h2>
+      <div class="game-wrapper">
+        <canvas id="ecoGameCanvas"></canvas>
+        <div class="progress-container">
+          <div class="progress-bar" style="width: 0%"></div>
+        </div>
+      </div>
+      <button class="nav-btn" data-next="4">Start Mission! 🚀</button>
+    </div>
+
+    <!-- Step 4: Guardian Consent -->
+    <div class="step hidden" data-step="4">
+      <h2>Grown-Up Check! 🔒</h2>
+      <label class="consent-box">
+        <input type="checkbox" id="guardianCheck">
+        <span>My grown-up says I can join!</span>
+      </label>
+      <button class="nav-btn" data-next="5">Finish! 🎉</button>
+    </div>
+
+    <!-- Step 5: Completion -->
+    <div class="step hidden celebration" data-step="5">
+      <h2>You Did It! 🌟</h2>
+      <p>Welcome to the Eco Kids Club!</p>
+      <button class="enter-clubhouse">Enter Secret Base 🏕️</button>
+    </div>
+  </div>
+
+  <script src="/js/app.js"></script>
+  <script src="/js/mini-game.js"></script>
+</body>
+</html>
