@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magical Swahili Stories | Nyambura Cubs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --magic-sky: linear-gradient(145deg, #00b4d8 0%, #0077b6 30%, #27AE60 100%);
+            --golden-light: #FFD700;
+            --forest-floor: #2C3E50;
+            --magic-accent: #E67E22;
+            --mystic-glow: rgba(241, 196, 15, 0.3);
+        }
+
+        body {
+            font-family: 'Baloo 2', cursive;
+            background: var(--magic-sky);
+            color: white;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Enchanted Header */
+        .story-portal {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            perspective: 1000px;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2));
+        }
+
+        .background-slideshow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.8;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            animation: kenburns 24s infinite;
+        }
+
+        @keyframes kenburns {
+            0% { opacity: 0; transform: scale(1); }
+            5% { opacity: 1; }
+            20% { opacity: 1; transform: scale(1.1); }
+            25% { opacity: 0; transform: scale(1.15); }
+            100% { opacity: 0; }
+        }
+
+        .slide:nth-child(1) { background-image: url('images/cheetah1.jpg'); animation-delay: 0s; }
+        .slide:nth-child(2) { background-image: url('images/elephant1.jpg'); animation-delay: 6s; }
+        .slide:nth-child(3) { background-image: url('images/rhino1.jpg'); animation-delay: 12s; }
+        .slide:nth-child(4) { background-image: url('images/snake1.jpg'); animation-delay: 18s; }
+
+        .story-portal-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding-top: 15vh;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .mfalme-title {
+            font-size: 5rem;
+            color: #FFD700;
+            margin-bottom: 1rem;
+            text-shadow: 3px 3px #D35400;
+            animation: title-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes title-glow {
+            0%, 100% { text-shadow: 3px 3px #D35400, 0 0 20px #FFD700; }
+            50% { text-shadow: 3px 3px #D35400, 0 0 40px #FFD700; }
+        }
+
+        /* Story Cards */
+        .story-scroll {
+            position: relative;
+            padding: 5rem 2rem;
+            min-height: 150vh;
+            background: url('images/forest-path.png') center/cover;
+        }
+
+        .story-card {
+            position: relative;
+            max-width: 800px;
+            margin: 4rem auto;
+            background: rgba(255,255,255,0.95);
+            border-radius: 30px;
+            padding: 3rem;
+            box-shadow: 0 0 50px var(--mystic-glow);
+            transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
+            cursor: pointer;
+        }
+
+        .story-card:hover {
+            transform: translateY(-20px) rotate(2deg);
+        }
+
+        .story-illustration {
+            width: 300px;
+            height: 300px;
+            border-radius: 20px;
+            float: left;
+            shape-outside: circle(50%);
+            margin-right: 2rem;
+            border: 5px solid var(--golden-light);
+            box-shadow: 0 0 30px var(--magic-accent);
+            transition: transform 0.4s ease;
+        }
+
+        .story-card:hover .story-illustration {
+            transform: rotate(-5deg) scale(1.05);
+        }
+
+        .magic-button {
+            background: var(--magic-accent);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+            margin-top: 1.5rem;
+        }
+
+        .magic-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px var(--golden-light);
+        }
+
+        @media (max-width: 768px) {
+            .mfalme-title { font-size: 3rem; }
+            .story-card { margin: 2rem auto; padding: 2rem; }
+            .story-illustration { 
+                float: none; 
+                width: 100%;
+                height: auto;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Story Portal -->
+    <section class="story-portal">
+        <div class="background-slideshow">
+            <div class="slide"></div>
+            <div class="slide"></div>
+            <div class="slide"></div>
+            <div class="slide"></div>
+        </div>
+
+        <div class="story-portal-content">
+            <h1 class="mfalme-title">📚 Hadithi za Kiswahili</h1>
+        </div>
+    </section>
+
+    <!-- Story Scroll -->
+    <section class="story-scroll">
+        <!-- Anansi's Story -->
+        <article class="story-card">
+            <img src="images/anansi-magic.png" 
+                 class="story-illustration" 
+                 alt="Anansi's Web of Wisdom">
+            <h2>Anansi na Wavu wa Hekima</h2>
+            <p>Katika msitu wa mibaobab, Anansi mwenye werevu anafunua siri za ulimwengu kupitia hadithi zinazofanya miti kucheza...</p>
+            <button class="magic-button">Anza Safari 🕸️</button>
+        </article>
+
+        <!-- Simba's Story -->
+        <article class="story-card">
+            <img src="images/lion-quest.png" 
+                 class="story-illustration" 
+                 alt="Lion's Great Quest">
+            <h2>Simba Mfalme</h2>
+            <p>Simba mdogo anapaswa kurejesha uhusiano kati ya wanyama na mimea kwa kutatua fumbo la asili...</p>
+            <button class="magic-button">Anza Safari 🦁</button>
+        </article>
+    </section>
+<!-- Magical Footer -->
+<footer class="enchanted-path">
+    <div class="pathway-glow"></div>
+    <nav class="magic-nav">
+        <a href="index.html" class="path-stone">🏡 Home</a>
+        
+        <a href="activitiesNgames.html" class="path-stone">🎮 Games</a>
+    </nav>
+</footer>
+    <script>
+        // Image preloader
+        const preloadImages = () => {
+            const images = [
+                'images/cheetah1.jpg',
+                'images/elephant1.jpg',
+                'images/rhino1.jpg',
+                'images/snake1.jpg',
+                'images/warthog.jpg',
+                'images/zebra.jpg'
+            ];
+            
+            images.forEach(src => {
+                const img = new Image();
+                img.src = src;
+            });
+        };
+
+        // Initialize on load
+        window.addEventListener('load', () => {
+            preloadImages();
+            
+            // Add hover effect to cards
+            document.querySelectorAll('.story-card').forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.style.transform = 'translateY(-20px) rotate(2deg)';
+                });
+                
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'translateY(0) rotate(0deg)';
+                });
+            });
+        });
+
+        // Add interactive title effect
+        document.querySelector('.mfalme-title').addEventListener('mousemove', (e) => {
+            const x = (e.clientX / window.innerWidth - 0.5) * 20;
+            const y = (e.clientY / window.innerHeight - 0.5) * 20;
+            e.target.style.transform = `translate(${x}px, ${y}px)`;
+        });
+    </script>
+</body>
+</html>
