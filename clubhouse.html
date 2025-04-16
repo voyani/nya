@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco Clubhouse | Mazingira Cubs</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        :root {
+            --jungle-green: #2ecc71;
+            --sunny-yellow: #f1c40f;
+            --sky-blue: #3498db;
+            --deep-forest: #1d5f2c;
+            --earth-brown: #784212;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)),
+                url('/images/onboardingBackground.jpg') center/cover fixed;
+            min-height: 100vh;
+            font-family: 'Bubblegum Sans', cursive;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .clubhouse-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px;
+            box-sizing: border-box;
+        }
+
+        /* Enhanced Header */
+        .clubhouse-header {
+            background: rgba(0, 40, 0, 0.7);
+            backdrop-filter: blur(8px);
+            border: 2px solid var(--sunny-yellow);
+            border-radius: 20px;
+            margin: 20px auto;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            width: 90%;
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 0 10px rgba(46, 204, 113, 0.4); }
+            to { box-shadow: 0 0 20px rgba(46, 204, 113, 0.6); }
+        }
+
+        .clubhouse-mascot {
+            width: 150px;
+            height: 150px;
+            background: url('images/mascot-owl.png') center/contain no-repeat;
+            margin: 0 auto 1rem;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Activity Sections */
+        .activity-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .activity-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 1.5rem;
+            border: 2px solid var(--jungle-green);
+            backdrop-filter: blur(5px);
+        }
+
+        .badge-wall {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .badge-card {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 1rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .badge-card img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+        }
+
+        /* Enhanced Leaderboard */
+        .leaderboard {
+            background: rgba(40, 80, 40, 0.9);
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .leaderboard ol {
+            list-style: none;
+            padding: 0;
+            counter-reset: leaderboard-counter;
+        }
+
+        .leaderboard li {
+            counter-increment: leaderboard-counter;
+            padding: 1rem;
+            margin: 0.5rem 0;
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .leaderboard li::before {
+            content: counter(leaderboard-counter);
+            color: var(--jungle-green);
+            background: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+        }
+
+        /* New Content Sections */
+        .progress-tracker {
+            background: rgba(0, 60, 0, 0.9);
+            padding: 1.5rem;
+            border-radius: 20px;
+            border: 2px dashed var(--sunny-yellow);
+        }
+
+        .friends-online {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+        }
+
+        .friend-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 2px solid var(--sunny-yellow);
+            object-fit: cover;
+        }
+
+        @media (max-width: 768px) {
+            .activity-grid {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+            
+            .clubhouse-header {
+                width: 95%;
+                padding: 1.5rem;
+            }
+        }
+        /* Learning Materials Section */
+.learning-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.learning-card {
+    background: rgba(255,255,255,0.1);
+    border-radius: 15px;
+    overflow: hidden;
+    border: 2px solid var(--jungle-green);
+    transition: transform 0.3s ease;
+}
+
+.learning-card:hover {
+    transform: translateY(-5px);
+}
+
+.learning-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 3px solid var(--sunny-yellow);
+}
+
+.learning-content {
+    padding: 1rem;
+}
+
+.learning-content h3 {
+    color: var(--sunny-yellow);
+    margin: 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+.learning-content p {
+    color: #ffffff;
+    font-size: 0.9rem;
+    min-height: 60px;
+}
+    </style>
+</head>
+<body>
+    <div class="clubhouse-container">
+        <!-- Header -->
+        <header class="clubhouse-header">
+            <div class="clubhouse-mascot"></div>
+            <h1>Welcome to the Eco Clubhouse! 🌿</h1>
+            <p>Level 5 Eco Warrior | 450 Points</p>
+            <div class="stars">⭐⭐⭐⭐⭐</div>
+        </header>
+
+        <!-- Main Content Grid -->
+
+        <!-- Add this section within the main activity-grid -->
+<section class="activity-card">
+    <h2>📚 Eco Library</h2>
+    <div class="learning-grid">
+        <!-- Plant Conservation -->
+        <article class="learning-card">
+            <img src="images/learn-plants.jpg" alt="Plant Conservation">
+            <div class="learning-content">
+                <h3>🌱 Save Our Plants</h3>
+                <p>Discover rare African plants and how to protect them</p>
+                <button class="nav-button">Explore</button>
+            </div>
+        </article>
+
+        <!-- Wildlife Protection -->
+        <article class="learning-card">
+            <img src="images/learn-animals.jpg" alt="Wildlife Protection">
+            <div class="learning-content">
+                <h3>🦁 Wildlife Guardians</h3>
+                <p>Learn about endangered animals in your area</p>
+                <button class="nav-button">Explore</button>
+            </div>
+        </article>
+
+        <!-- Recycling Guide -->
+        <article class="learning-card">
+            <img src="images/learn-recycling.jpg" alt="Recycling Guide">
+            <div class="learning-content">
+                <h3>♻️ Smart Recycling</h3>
+                <p>Fun ways to recycle common household items</p>
+                <button class="nav-button">Explore</button>
+            </div>
+        </article>
+    </div>
+</section>
+        <main class="activity-grid">
+            <!-- Achievements Section -->
+            <section class="activity-card">
+                <h2>🏆 Your Achievements</h2>
+                <div class="badge-wall">
+                    <div class="badge-card">
+                        <img src="images/tree-badge.png" alt="Tree Planter">
+                        <h3>Tree Champion</h3>
+                    </div>
+                    <div class="badge-card">
+                        <img src="images/water-badge.png" alt="Water Saver">
+                        <h3>Water Hero</h3>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Progress Tracker -->
+            <section class="activity-card progress-tracker">
+                <h2>📈 Your Progress</h2>
+                <div class="challenge-card">
+                    <h3>🌳 Plant 5 Trees</h3>
+                    <progress value="3" max="5"></progress>
+                    <p>2 more to go!</p>
+                </div>
+                <div class="challenge-card">
+                    <h3>♻️ Recycle 10 Items</h3>
+                    <progress value="7" max="10"></progress>
+                </div>
+            </section>
+
+            <!-- Leaderboard -->
+            <section class="leaderboard">
+                <h2>🏅 Top Eco Warriors</h2>
+                <ol>
+                    <li>
+                        <span>Kofi</span>
+                        <span>680 pts</span>
+                    </li>
+                    <li>
+                        <span>Amina</span>
+                        <span>620 pts</span>
+                    </li>
+                    <li>
+                        <span>Juma</span>
+                        <span>590 pts</span>
+                    </li>
+                </ol>
+            </section>
+
+            <!-- Friends Section -->
+            <section class="activity-card">
+                <h2>👥 Eco Friends</h2>
+                <div class="friends-online">
+                    <img src="images/friend1.png" class="friend-avatar" alt="Amina">
+                    <img src="images/friend2.png" class="friend-avatar" alt="Kofi">
+                    <img src="images/friend3.png" class="friend-avatar" alt="Juma">
+                </div>
+                <button class="nav-button">Invite Friends</button>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="clubhouse-footer">
+            <div class="quick-links">
+                <a href="index.html">🏠 Home</a>
+                <a href="activities.html">🎮 Games</a>
+                <a href="stories.html">📚 Stories</a>
+            </div>
+            <p>🌍 Together we protect our planet!</p>
+        </footer>
+    </div>
+</body>
+</html>

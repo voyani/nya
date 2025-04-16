@@ -1,250 +1,179 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Eco Kids Adventure Club | Save the Planet!</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Eco Kids Mobile Adventure</title>
   <link rel="preload" href="/images/onboardingBackground.jpg" as="image">
   <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Comic+Neue&display=swap" rel="stylesheet">
-  
-</head>
-<style>
+  <style>
     :root {
-  --jungle-green: #2ecc71;
-  --sunny-yellow: #f1c40f;
-  --earth-brown: #8b4513;
-  --sky-blue: #3498db;
-  --error-red: #e74c3c;
-}
+      --jungle-green: #2ecc71;
+      --sunny-yellow: #f1c40f;
+      --sky-blue: #3498db;
+      --error-red: #e74c3c;
+    }
 
-@viewport {
-  width: device-width;
-  zoom: 1.0;
-}
+    body {
+      margin: 0;
+      padding: 0;
+      background: url('/images/onboardingBackground.jpg') center/cover no-repeat;
+      font-family: 'Bubblegum Sans', cursive;
+      color: white;
+      min-height: 100vh;
+      overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
+    }
 
-body {
-  margin: 0;
-  background: url('/images/onboardingBackground.jpg') center/cover no-repeat;
-  background-attachment: scroll;
-  font-family: 'Bubblegum Sans', cursive;
-  color: white;
-  min-height: 100vh;
-  overflow-x: hidden;
-}
+    .adventure-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 15px;
+      box-sizing: border-box;
+    }
 
-.adventure-container {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 20px;
-  position: relative;
-}
+    .step {
+      background: rgba(0, 80, 0, 0.95);
+      border-radius: 20px;
+      padding: 20px;
+      margin: 10px 0;
+      border: 3px solid var(--sunny-yellow);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      backdrop-filter: blur(5px);
+    }
 
-.step {
-  background: rgba(0, 100, 0, 0.9);
-  border-radius: 20px;
-  padding: 2rem;
-  text-align: center;
-  box-shadow: 0 0 30px rgba(0,0,0,0.3);
-  border: 4px solid var(--sunny-yellow);
-  margin: 15px;
-}
+    .avatar-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin: 20px 0;
+    }
 
-.avatar-grid, .name-bubbles {
-  display: flex;
-  gap: 1.5rem;
-  justify-content: center;
-  margin: 2rem 0;
-  flex-wrap: wrap;
-}
+    .avatar {
+      width: 100%;
+      padding-top: 100%;
+      position: relative;
+      border-radius: 50%;
+      border: 3px solid transparent;
+      transition: all 0.3s ease;
+      background-size: cover;
+    }
 
-.avatar {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: transform 0.3s, filter 0.3s;
-  border: 4px solid transparent;
-  min-width: 80px;
-  min-height: 80px;
-}
+    .avatar.selected {
+      border-color: var(--sunny-yellow);
+      filter: drop-shadow(0 0 10px gold);
+      transform: scale(1.1);
+    }
 
-.avatar.selected {
-  transform: scale(1.1);
-  border-color: var(--sunny-yellow);
-  filter: drop-shadow(0 0 15px gold);
-}
+    .nav-btn {
+      background: var(--jungle-green);
+      color: white;
+      font-size: 1.2em;
+      padding: 12px 25px;
+      border-radius: 25px;
+      border: none;
+      margin: 10px 0;
+      cursor: pointer;
+      font-family: 'Comic Neue', cursive;
+      width: 100%;
+      max-width: 300px;
+      transition: all 0.3s ease;
+    }
 
-.nav-btn {
-  background: var(--jungle-green);
-  color: white;
-  font-size: 1.2rem;
-  padding: 1rem 3rem;
-  border-radius: 30px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s;
-  font-family: 'Comic Neue', cursive;
-  min-width: 150px;
-}
+    .nav-btn:active {
+      transform: scale(0.95);
+      background: var(--sky-blue);
+    }
 
-.nav-btn:hover {
-  background: var(--sky-blue);
-  transform: scale(1.05);
-}
+    #ecoGameCanvas {
+      width: 100%;
+      height: 50vh;
+      min-height: 300px;
+      border-radius: 15px;
+      background: rgba(0,0,0,0.2);
+      touch-action: none;
+    }
 
-#ecoGameCanvas {
-  width: 100%;
-  height: 400px;
-  border-radius: 15px;
-  background: rgba(0,0,0,0.2);
-  touch-action: none;
-}
+    .progress-container {
+      width: 100%;
+      height: 15px;
+      background: #334433;
+      border-radius: 10px;
+      margin: 15px 0;
+    }
 
-.progress-container {
-  width: 100%;
-  height: 20px;
-  background: #555;
-  border-radius: 10px;
-  margin: 1rem 0;
-}
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(to right, #4CAF50, #8BC34A);
+      border-radius: 10px;
+      transition: width 0.5s ease;
+    }
 
-.progress-bar {
-  height: 100%;
-  background: linear-gradient(to right, #4CAF50, #8BC34A);
-  border-radius: 10px;
-  transition: width 0.5s ease;
-}
+    .hidden {
+      display: none !important;
+    }
 
-.hidden {
-  display: none;
-}
+    @media (max-width: 600px) {
+      .avatar-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .step {
+        padding: 15px;
+        margin: 5px 0;
+      }
+      
+      .nav-btn {
+        font-size: 1.1em;
+        padding: 10px 20px;
+      }
+    }
 
-.celebration {
-  animation: partyLights 2s infinite;
-}
-
-@keyframes partyLights {
-  0% { border-color: #ff0000; }
-  33% { border-color: #00ff00; }
-  66% { border-color: #0000ff; }
-  100% { border-color: #ff0000; }
-}
-
-/* Mobile-first media queries */
-@media (max-width: 600px) {
-  .adventure-container {
-    padding: 10px;
-    margin: 0;
-    min-height: 100vh;
-  }
-
-  .step {
-    padding: 1rem;
-    border-width: 2px;
-    margin: 10px 0;
-  }
-
-  .avatar {
-    width: 100px;
-    height: 100px;
-  }
-
-  #ecoGameCanvas {
-    height: 300px;
-  }
-
-  .nav-btn {
-    padding: 0.8rem 1.5rem;
-    font-size: 1rem;
-    min-width: 120px;
-  }
-}
-
-@media (max-width: 480px) {
-  body {
-    background-size: auto 100%;
-  }
-
-  .avatar {
-    width: 80px;
-    height: 80px;
-  }
-
-  .nav-btn {
-    width: 100%;
-    margin: 5px 0;
-  }
-
-  h1 {
-    font-size: 1.5rem;
-  }
-
-  h2 {
-    font-size: 1.3rem;
-  }
-}
-</style>
+    @media (max-width: 400px) {
+      .avatar-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      #ecoGameCanvas {
+        min-height: 250px;
+      }
+    }
+  </style>
+</head>
 <body>
   <div class="adventure-container">
-
-    <div class="cloud-animation"></div>
-    
-    <!-- Step 0: Welcome Screen -->
-    <div class="step welcome-screen">
-      <img src="images/mascot-owl.webp" class="guide-owl" alt="Wise Owl Mascot">
-      <h1>Welcome Eco Explorer! 🌍</h1>
-      <button class="start-btn">Begin Adventure!</button>
+    <!-- Welcome Screen -->
+    <div class="step" data-step="0">
+      <h1>🌿 Eco Warrior Training 🌍</h1>
+      <button class="nav-btn start-btn">Start Mission!</button>
     </div>
 
-    <!-- Step 1: Avatar Selection -->
+    <!-- Avatar Selection -->
     <div class="step hidden" data-step="1">
-      <h2>Choose Your Animal Friend! 🐾</h2>
+      <h2>Choose Your Spirit Animal</h2>
       <div class="avatar-grid">
-        <img src="images/avatar-panda.webp" class="avatar" data-animal="panda">
-        <img src="images/avatar-tiger.webp" class="avatar" data-animal="tiger">
-        <img src="images/avatar-parrot.webp" class="avatar" data-animal="parrot">
+        <div class="avatar" data-animal="giraffe" style="background-image: url('/images/giraffeAvatar.jpg')"></div>
+        <div class="avatar" data-animal="lion" style="background-image: url('/images/lionAvatar.jpg')"></div>
+        <div class="avatar" data-animal="panda" style="background-image: url('/images/pandaAvatar.jpg')"></div>
       </div>
       <button class="nav-btn" data-next="2">Next ➔</button>
     </div>
 
-    <!-- Step 2: Name Selection -->
+    <!-- Game Screen -->
     <div class="step hidden" data-step="2">
-      <h2>Pick Your Hero Name! ✨</h2>
-      <div class="name-bubbles">
-        <button class="name-bubble">Forest Guardian</button>
-        <button class="name-bubble">Ocean Protector</button>
-        <button class="name-bubble">Earth Warrior</button>
+      <h2>Clean the Forest! 🌳</h2>
+      <canvas id="ecoGameCanvas"></canvas>
+      <div class="progress-container">
+        <div class="progress-bar" style="width: 0%"></div>
       </div>
       <button class="nav-btn" data-next="3">Continue ➔</button>
     </div>
 
-    <!-- Step 3: Eco Game -->
-    <div class="step hidden" data-step="3">
-      <h2>Clean Up the Forest! 🌳</h2>
-      <div class="game-wrapper">
-        <canvas id="ecoGameCanvas"></canvas>
-        <div class="progress-container">
-          <div class="progress-bar" style="width: 0%"></div>
-        </div>
-      </div>
-      <button class="nav-btn" data-next="4">Start Mission! 🚀</button>
-    </div>
-
-    <!-- Step 4: Guardian Consent -->
-    <div class="step hidden" data-step="4">
-      <h2>Grown-Up Check! 🔒</h2>
-      <label class="consent-box">
-        <input type="checkbox" id="guardianCheck">
-        <span>My grown-up says I can join!</span>
-      </label>
-      <button class="nav-btn" data-next="5">Finish! 🎉</button>
-    </div>
-
-    <!-- Step 5: Completion -->
-    <div class="step hidden celebration" data-step="5">
-      <h2>You Did It! 🌟</h2>
-      <p>Welcome to the Eco Kids Club!</p>
-      <button class="enter-clubhouse">Enter Secret Base 🏕️</button>
+    <!-- Completion Screen -->
+    <div class="step hidden celebration" data-step="3">
+      <h2>🎉 Mission Complete!</h2>
+      <button class="nav-btn" onclick="location.href='clubhouse.html'">Enter Clubhouse 🏕️</button>
     </div>
   </div>
 
