@@ -3,34 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mazingira Clubs - African Environmental Education</title>
+    <title>Mazingira Clubs | African Environmental Education</title>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Baloo+2:wght@600&display=swap" rel="stylesheet">
-    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --jungle-green: #2ecc71;
             --sunny-yellow: #f1c40f;
-            --earth-brown: #a87d5b;
+            --deep-forest: #1d5f2c;
+            --earth-brown: #784212;
             --sky-blue: #3498db;
         }
 
         body {
             margin: 0;
-            font-family: 'Baloo 2', cursive;
-            background: linear-gradient(180deg, #FEF9E7 0%, #E8F6F3 100%);
-            color: #2C3E50;
+            padding: 0;
+            background: 
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url('images/onboardingBackground.jpg') center / cover fixed no-repeat;
+
+            min-height: 100vh;
+            font-family: 'Bubblegum Sans', cursive;
+            color: white;
+            overflow-x: hidden;
         }
 
-        /* Animated Header */
+        /* Header - Matches Clubhouse Style */
         .main-header {
-            background: rgba(255, 255, 255, 0.95);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            padding: 1rem;
-            position: relative;
+            background: rgba(0, 40, 0, 0.7);
             backdrop-filter: blur(8px);
+            padding: 1rem;
+            border-bottom: 2px solid var(--sunny-yellow);
         }
 
         nav {
@@ -43,75 +48,86 @@
 
         .logo img {
             height: 60px;
-            transition: transform 0.3s ease;
+            filter: drop-shadow(0 0 5px var(--jungle-green));
         }
 
         .nav-links {
             display: flex;
             gap: 2rem;
             list-style: none;
+            padding: 0;
         }
 
         .nav-links a {
-            color: #2C3E50;
+            color: white;
             text-decoration: none;
-            padding: 0.5rem 1rem;
+            padding: 0.8rem 1.2rem;
             border-radius: 25px;
             transition: all 0.3s ease;
         }
 
         .nav-links a:hover {
             background: var(--jungle-green);
-            color: white;
+            box-shadow: 0 0 15px rgba(46, 204, 113, 0.4);
         }
 
-        /* Hero Section */
-        .hero-container {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/savanna-hero.jpg');
-background-position: center;
-background-size: cover;
-background-repeat: no-repeat;
-   
-
-            min-height: 70vh;
+        /* Hero Section - Game Page Style */
+        .hero {
+            position: relative;
+            height: 70vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: white;
             padding: 2rem;
         }
 
-        .hero-content h1 {
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+        }
+
+        .hero h1 {
             font-size: 3.5rem;
-            text-shadow: 3px 3px var(--earth-brown);
+            text-shadow: 3px 3px var(--deep-forest);
             margin-bottom: 1rem;
-            animation: bounce 2s infinite;
+            animation: titleGlow 2s ease-in-out infinite;
         }
 
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+        @keyframes titleGlow {
+            0%, 100% { text-shadow: 3px 3px var(--deep-forest), 0 0 20px var(--sunny-yellow); }
+            50% { text-shadow: 3px 3px var(--deep-forest), 0 0 40px var(--sunny-yellow); }
         }
 
-        /* Audience Cards */
+        /* Audience Grid - Clubhouse Card Style */
         .audience-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            padding: 4rem 2rem;
+            padding: 2rem;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .audience-card {
-            background: white;
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 20px;
             padding: 2rem;
-            text-align: center;
+            border: 2px solid var(--jungle-green);
+            backdrop-filter: blur(5px);
             transition: transform 0.3s ease;
-            border: 3px dashed var(--sunny-yellow);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            text-align: center;
         }
 
         .audience-card:hover {
@@ -119,16 +135,10 @@ background-repeat: no-repeat;
         }
 
         .audience-card.kids {
-            background: linear-gradient(145deg, #2ecc71 0%, #27ae60 100%);
-            color: white;
+            border-color: var(--sunny-yellow);
         }
 
-        .audience-card.teachers {
-            background: linear-gradient(145deg, #3498db 0%, #2980b9 100%);
-            color: white;
-        }
-
-        /* Features Grid */
+        /* Features Grid - Game Card Alignment */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -139,25 +149,50 @@ background-repeat: no-repeat;
         }
 
         .feature-card {
-            background: rgba(255,255,255,0.9);
+            background: rgba(40, 80, 40, 0.9);
             padding: 1.5rem;
             border-radius: 15px;
+            border: 2px dashed var(--sunny-yellow);
+        }
+
+        /* Buttons - Consistent with Games Page */
+        .cta-button {
+            background: var(--sunny-yellow);
+            color: #2C3E50;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin: 1rem;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(241, 196, 15, 0.4);
+        }
+
+        /* Footer - Clubhouse Footer Style */
+        .main-footer {
+            background: rgba(0, 40, 0, 0.7);
+            backdrop-filter: blur(8px);
+            padding: 2rem;
             text-align: center;
-            border: 2px solid var(--jungle-green);
+            margin-top: 3rem;
+            border-top: 2px solid var(--sunny-yellow);
         }
 
-        /* Animated Elements */
-        .floating-elephant {
-            position: absolute;
-            width: 150px;
-            height: 150px;
-            background: url('images/elephant-icon.png') center/contain;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
@@ -169,70 +204,68 @@ background-repeat: no-repeat;
                 <img src="images/logo.png" alt="Mazingira Clubs Logo">
             </div>
             <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="teachersLanding.html">For Educators</a></li>
-                <li><a href="kidsLanding.html">For Kids</a></li>
-                <li><a href="activitiesNgames.html">Games</a></li>
+                <li><a href="index.html">🏠 Home</a></li>
+                <li><a href="teachersLanding.html">📚 Educators</a></li>
+                <li><a href="kidsLanding.html">🎮 Kids Zone</a></li>
+                <li><a href="activitiesNgames.html">🌍 Games</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Hero Section -->
-    <div class="hero-container">
+    <section class="hero">
         <div class="hero-content">
-            <h1>Jambo Eco Warriors!</h1>
-            <p>Discover Africa's Environmental Magic</p>
-            <div class="cta-buttons">
-                <a href="kidsLanding.html" class="cta-button">Kids Adventure</a>
-                <a href="teachersLanding.html" class="cta-button">Educator Resources</a>
+            <h1>Protect Africa's Environment</h1>
+            <p>Join our tribe of Eco Warriors!</p>
+            <div class="hero-cta">
+                <a href="kidsLanding.html" class="cta-button">Kids Adventure 🌍</a>
+                <a href="teachersLanding.html" class="cta-button">Educator Resources 📚</a>
             </div>
         </div>
-        <div class="floating-elephant" style="right:10%; top:20%"></div>
-    </div>
+    </section>
 
-    <!-- Audience Section -->
+    <!-- Audience Grid -->
     <section class="audience-grid">
         <article class="audience-card kids">
-            <h2>Young Explorers 🌍</h2>
-            <p>Play games, earn badges, and become an Eco Hero!</p>
-            <a href="kidsLanding.html" class="cta-button">Start Adventure</a>
+            <h2>Young Explorers</h2>
+            <p>🎮 Play eco-games 🌱 Earn badges 🦁 Protect wildlife</p>
+            <a href="kidsLanding.html" class="cta-button">Start Adventure!</a>
         </article>
 
-        <article class="audience-card teachers">
-            <h2>Educators 📚</h2>
-            <p>Curriculum-aligned resources for African schools</p>
-            <a href="teachersLanding.html" class="cta-button">Teaching Tools</a>
+        <article class="audience-card">
+            <h2>Educators & Parents</h2>
+            <p>📖 Curriculum resources 📋 Lesson plans 🏆 Certifications</p>
+            <a href="teachersLanding.html" class="cta-button">View Resources</a>
         </article>
     </section>
 
     <!-- Features Grid -->
     <section class="features-grid">
         <div class="feature-card">
-            <img src="images/story-icon.png" alt="Storytelling" width="80">
-            <h3>African Storytelling</h3>
+            <h3>🌿 African Stories</h3>
             <p>Learn through Anansi tales and traditional wisdom</p>
         </div>
         <div class="feature-card">
-            <img src="images/game-icon.png" alt="Games" width="80">
-            <h3>Eco Games</h3>
-            <p>Protect wildlife through interactive challenges</p>
+            <h3>🎮 Eco Games</h3>
+            <p>Interactive challenges to protect wildlife</p>
         </div>
         <div class="feature-card">
-            <img src="images/curriculum-icon.png" alt="Curriculum" width="80">
-            <h3>Curriculum Aligned</h3>
-            <p>Supports CBC and other African systems</p>
+            <h3>📚 Curriculum</h3>
+            <p>Aligned with African education systems</p>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="main-footer">
-        <div class="footer-content">
-            <p>© 2024 Mazingira Clubs | Contact: contact@mazingira.org</p>
-            <div class="social-links">
-                <a href="#"><img src="images/facebook-icon.png" alt="Facebook"></a>
-                <a href="#"><img src="images/twitter-icon.png" alt="Twitter"></a>
-            </div>
+        <p>© 2024 Mazingira Clubs | Contact: contact@mazingira.org</p>
+        <div class="social-links">
+            <a href="#"><img src="images/facebook-icon.png" alt="Facebook" width="30"></a>
+            <a href="#"><img src="images/twitter-icon.png" alt="Twitter" width="30"></a>
         </div>
     </footer>
+
+    <!-- Animated Elements -->
+    <div class="floating-elephant"></div>
+    <div class="animated-bird" style="top:15%"></div>
 </body>
 </html>
