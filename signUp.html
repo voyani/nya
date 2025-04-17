@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join the Eco Tribe | Mazingira Cubs</title>
+    <style>
+        :root {
+            --jungle-green: #2ecc71;
+            --sunny-yellow: #f1c40f;
+            --deep-forest: #1d5f2c;
+            --earth-brown: #784212;
+            --sky-blue: #3498db;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)),
+                url('images/onboardingBackground.jpg') center/cover fixed;
+            font-family: 'Bubblegum Sans', cursive;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .signup-container {
+            background: rgba(0, 40, 0, 0.8);
+            backdrop-filter: blur(8px);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 2px solid var(--sunny-yellow);
+            width: 90%;
+            max-width: 500px;
+            animation: glow 2s ease-in-out infinite alternate;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @keyframes glow {
+            from { box-shadow: 0 0 10px rgba(46, 204, 113, 0.4); }
+            to { box-shadow: 0 0 20px rgba(46, 204, 113, 0.6); }
+        }
+
+        .form-title {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 0.8rem;
+            border-radius: 15px;
+            border: 2px solid var(--jungle-green);
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--sunny-yellow);
+            transform: scale(1.02);
+        }
+
+        .submit-btn {
+            background: var(--jungle-green);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(46, 204, 113, 0.4);
+        }
+
+        .submit-btn::after {
+            content: '🌱';
+            position: absolute;
+            right: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover::after {
+            transform: rotate(360deg);
+        }
+
+        .success-message {
+            display: none;
+            text-align: center;
+            animation: popIn 0.5s ease;
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0); }
+            90% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: var(--sunny-yellow);
+            animation: confettiFall 1.5s linear;
+        }
+
+        @keyframes confettiFall {
+            0% { transform: translateY(-100vh) rotate(0deg); }
+            100% { transform: translateY(100vh) rotate(360deg); }
+        }
+
+        .mascot {
+            position: absolute;
+            bottom: -30px;
+            right: -30px;
+            width: 150px;
+            height: 150px;
+            background: url('images/onboardingBackground.jpg') center/contain no-repeat;
+            opacity: 0.3;
+        }
+    </style>
+</head>
+<body>
+    <div class="signup-container">
+        <div class="mascot"></div>
+        <h1 class="form-title">🌿 Join the Eco Tribe!</h1>
+        
+        <form id="demoForm">
+            <div class="form-group">
+                <input type="text" class="form-input" placeholder="🌱 Your Eco Name" required>
+            </div>
+            
+            <div class="form-group">
+                <input type="email" class="form-input" placeholder="📧 Owl Post Address" required>
+            </div>
+
+            <div class="form-group">
+                <input type="password" class="form-input" placeholder="🔒 Secret Forest Code" required>
+            </div>
+
+            <button type="submit" class="submit-btn">Plant Your Account Seed</button>
+        </form>
+
+        <div class="success-message">
+            <h2>🎉 Welcome to the Tribe!</h2>
+            <p>Your eco-journey begins now!</p>
+            <div class="animated-tree">🌳</div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('demoForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Create confetti effect
+            for(let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.animationDelay = Math.random() * 1 + 's';
+                document.body.appendChild(confetti);
+            }
+    
+            // Show success message
+            this.style.display = 'none';
+            document.querySelector('.success-message').style.display = 'block';
+            
+            // Remove confetti and redirect after animation
+            setTimeout(() => {
+                document.querySelectorAll('.confetti').forEach(c => c.remove());
+                window.location.replace('clubhouse.html');
+            }, 2500); // Matches confetti animation duration
+        });
+    </script>
+</body>
+</html>
