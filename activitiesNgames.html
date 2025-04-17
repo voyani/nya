@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco Games | Mazingira Cubs</title>
+    <style>
+        /* Reuse clubhouse theme styles */
+        :root {
+            --jungle-green: #2ecc71;
+            --sunny-yellow: #f1c40f;
+            --sky-blue: #3498db;
+            --deep-forest: #1d5f2c;
+            --earth-brown: #784212;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)),
+                url('images/onboardingBackground.jpg') center/cover fixed;
+            min-height: 100vh;
+            font-family: 'Bubblegum Sans', cursive;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .games-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .game-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 1.5rem;
+            border: 2px solid var(--jungle-green);
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s ease;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .game-canvas {
+            width: 100%;
+            height: 200px;
+            border-radius: 15px;
+            margin-bottom: 1rem;
+        }
+
+        .play-button {
+            background: var(--sunny-yellow);
+            color: #2C3E50;
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .play-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(241, 196, 15, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <div class="games-container">
+        <header class="clubhouse-header">
+            <div class="clubhouse-mascot"></div>
+            <h1>Eco Adventure Games! 🎮</h1>
+            <p>Level Up Your Environmental Skills</p>
+        </header>
+
+        <main class="game-grid">
+            <!-- Snake Game -->
+            <div class="game-card">
+                <h2>🌿 Snake the Recycler</h2>
+                <a href="snake.html" style="text-decoration: none;">
+                    <div class="game-canvas" style="background: rgba(255,255,255,0.1); cursor: pointer;">
+                        <img src="images/snakeLogo.jpg" alt="Snake Game Preview" style="width:100%; height:200px; object-fit: cover; border-radius: 15px;">
+                    </div>
+                </a>
+                <p>Collect recyclables while avoiding pollution!</p>
+                <a href="snake.html" class="play-button">Play Now 🐍</a>
+            </div>
+
+
+            <!-- Recycling Sorter -->
+            <div class="game-card">
+                <h2>♻️ Waste Warrior</h2>
+                <div class="game-canvas" style="background: rgba(255,255,255,0.1);">
+                    <img src="images/placeholder-recycle.png" alt="Recycling Game" style="width:100%">
+                </div>
+                <p>Sort different types of waste correctly</p>
+                <button class="play-button">Coming Soon ⏳</button>
+            </div>
+
+            <!-- Tree Planter -->
+            <div class="game-card">
+                <h2>🌳 Forest Builder</h2>
+                <div class="game-canvas" style="background: rgba(255,255,255,0.1);">
+                    <img src="images/placeholder-tree.png" alt="Tree Planting Game" style="width:100%">
+                </div>
+                <p>Grow your virtual forest by answering eco-questions</p>
+                <button class="play-button">Coming Soon ⏳</button>
+            </div>
+
+            <!-- Water Saver -->
+            <div class="game-card">
+                <h2>💧 River Rescue</h2>
+                <div class="game-canvas" style="background: rgba(255,255,255,0.1);">
+                    <img src="images/placeholder-water.png" alt="Water Game" style="width:100%">
+                </div>
+                <p>Fix leaks and save precious water</p>
+                <button class="play-button">Coming Soon ⏳</button>
+            </div>
+
+            <!-- Wildlife Protector -->
+            <div class="game-card">
+                <h2>🦁 Animal Guardian</h2>
+                <div class="game-canvas" style="background: rgba(255,255,255,0.1);">
+                    <img src="images/placeholder-wildlife.png" alt="Wildlife Game" style="width:100%">
+                </div>
+                <p>Protect animals from poachers and habitat loss</p>
+                <button class="play-button">Coming Soon ⏳</button>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/snake.js"></script>
+    
+</body>
+</html>

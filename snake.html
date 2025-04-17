@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Modern Snake Game</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: #1a1a1a;
+            font-family: Arial, sans-serif;
+        }
+        #gameContainer {
+            position: relative;
+        }
+        #myCanvas {
+            border: 3px solid #4CAF50;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
+        }
+        #score {
+            color: #4CAF50;
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        .game-over-modal {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.9);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+            z-index: 100;
+            border: 2px solid #4CAF50;
+            width: 300px;
+        }
+        .modal-buttons {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+        .modal-button {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        .restart-btn {
+            background: #4CAF50;
+            color: white;
+        }
+        .clubhouse-btn {
+            background: #2196F3;
+            color: white;
+        }
+        .modal-button:hover {
+            opacity: 0.9;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div id="score">Score: 0</div>
+    <div id="gameContainer">
+        <canvas id="myCanvas" width="600" height="500"></canvas>
+        <div id="gameOverModal" class="game-over-modal">
+            <h2>Game Over!</h2>
+            <p>Final Score: <span id="finalScore">0</span></p>
+            <div class="modal-buttons">
+                <button class="modal-button restart-btn">Restart</button>
+                <button class="modal-button clubhouse-btn">Clubhouse</button>
+            </div>
+        </div>
+    </div>
+    <script src="js/snake.js"></script>
+</body>
+</html>
