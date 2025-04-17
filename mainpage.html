@@ -3,13 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mazingira Clubs - Protect Africa's Environment</title>
+    <title>Mazingira Clubs - African Environmental Education</title>
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Baloo+2:wght@600&display=swap" rel="stylesheet">
     <!-- CSS -->
-    <link rel="stylesheet" href="/styles/mainpage.css">
+    <style>
+        :root {
+            --jungle-green: #2ecc71;
+            --sunny-yellow: #f1c40f;
+            --earth-brown: #a87d5b;
+            --sky-blue: #3498db;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Baloo 2', cursive;
+            background: linear-gradient(180deg, #FEF9E7 0%, #E8F6F3 100%);
+            color: #2C3E50;
+        }
+
+        /* Animated Header */
+        .main-header {
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1rem;
+            position: relative;
+            backdrop-filter: blur(8px);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #2C3E50;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background: var(--jungle-green);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero-container {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/savanna-hero.jpg');
+background-position: center;
+background-size: cover;
+background-repeat: no-repeat;
+   
+
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 2rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            text-shadow: 3px 3px var(--earth-brown);
+            margin-bottom: 1rem;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Audience Cards */
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 4rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .audience-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease;
+            border: 3px dashed var(--sunny-yellow);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .audience-card:hover {
+            transform: translateY(-10px) rotate(2deg);
+        }
+
+        .audience-card.kids {
+            background: linear-gradient(145deg, #2ecc71 0%, #27ae60 100%);
+            color: white;
+        }
+
+        .audience-card.teachers {
+            background: linear-gradient(145deg, #3498db 0%, #2980b9 100%);
+            color: white;
+        }
+
+        /* Features Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: rgba(255,255,255,0.9);
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 2px solid var(--jungle-green);
+        }
+
+        /* Animated Elements */
+        .floating-elephant {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            background: url('images/elephant-icon.png') center/contain;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+    </style>
 </head>
 <body>
     <!-- Header -->
@@ -20,100 +170,69 @@
             </div>
             <ul class="nav-links">
                 <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="explore.html">Explore</a></li>
-                <li><a href="community.html">Community</a></li>
-                <li><a href="about.html">Our Story</a></li>
+                <li><a href="teachersLanding.html">For Educators</a></li>
+                <li><a href="kidsLanding.html">For Kids</a></li>
+                <li><a href="activitiesNgames.html">Games</a></li>
             </ul>
-            <button class="cta-button">Join Now</button>
         </nav>
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-overlay"></div>
+    <div class="hero-container">
         <div class="hero-content">
-            <h1>Jambo Future Eco-Warriors!</h1>
-            <p>Discover the magic of Africa's nature through interactive climate education</p>
-            <div class="hero-cta">
-                <a href="explore.html" class="cta-button">Start Learning</a>
-                <a href="swahili-stories.html" class="cta-button secondary">Swahili Stories</a>
+            <h1>Jambo Eco Warriors!</h1>
+            <p>Discover Africa's Environmental Magic</p>
+            <div class="cta-buttons">
+                <a href="kidsLanding.html" class="cta-button">Kids Adventure</a>
+                <a href="teachersLanding.html" class="cta-button">Educator Resources</a>
             </div>
         </div>
+        <div class="floating-elephant" style="right:10%; top:20%"></div>
+    </div>
+
+    <!-- Audience Section -->
+    <section class="audience-grid">
+        <article class="audience-card kids">
+            <h2>Young Explorers 🌍</h2>
+            <p>Play games, earn badges, and become an Eco Hero!</p>
+            <a href="kidsLanding.html" class="cta-button">Start Adventure</a>
+        </article>
+
+        <article class="audience-card teachers">
+            <h2>Educators 📚</h2>
+            <p>Curriculum-aligned resources for African schools</p>
+            <a href="teachersLanding.html" class="cta-button">Teaching Tools</a>
+        </article>
     </section>
 
     <!-- Features Grid -->
     <section class="features-grid">
-        <h2>Why Choose Mazingira Clubs?</h2>
-        <div class="grid-container">
-            <article class="feature-card">
-                <div class="card-icon">
-                    <img src="images/storytelling-icon.png" alt="Storytelling" class="bongo-icon">
-                </div>
-                <h3>African Storytelling</h3>
-                <p>Learn through folktales about Anansi and African legends</p>
-            </article>
-            
-            <article class="feature-card">
-                <div class="card-icon">
-                    <img src="images/curriculum-icon.png" alt="Curriculum">
-                </div>
-                <h3>Curriculum-Aligned</h3>
-                <p>Supports CBC (Kenya) and other African education systems</p>
-            </article>
-
-            <article class="feature-card">
-                <div class="card-icon">
-                    <img src="images/wildlife-icon.png" alt="Wildlife">
-                </div>
-                <h3>Protect Wildlife</h3>
-                <p>Interactive games about elephants, rhinos, and gorillas</p>
-            </article>
+        <div class="feature-card">
+            <img src="images/story-icon.png" alt="Storytelling" width="80">
+            <h3>African Storytelling</h3>
+            <p>Learn through Anansi tales and traditional wisdom</p>
         </div>
-    </section>
-
-    <!-- Call to Action Section -->
-    <section class="cta-section">
-        <div class="cta-content">
-            <h2>Ready to Make a Difference?</h2>
-            <p>Join thousands of African children protecting our environment</p>
-            <div class="cta-buttons">
-                <a href="signup.html" class="cta-button large">Sign Up Free</a>
-                <a href="teachers.html" class="cta-button large secondary">Teacher Resources</a>
-            </div>
+        <div class="feature-card">
+            <img src="images/game-icon.png" alt="Games" width="80">
+            <h3>Eco Games</h3>
+            <p>Protect wildlife through interactive challenges</p>
+        </div>
+        <div class="feature-card">
+            <img src="images/curriculum-icon.png" alt="Curriculum" width="80">
+            <h3>Curriculum Aligned</h3>
+            <p>Supports CBC and other African systems</p>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="main-footer">
         <div class="footer-content">
-            <div class="footer-section">
-                <h4>Contact Us</h4>
-                <p>Nairobi, Kenya</p>
-                <p>contact@mazingiraclubs.org</p>
+            <p>© 2024 Mazingira Clubs | Contact: contact@mazingira.org</p>
+            <div class="social-links">
+                <a href="#"><img src="images/facebook-icon.png" alt="Facebook"></a>
+                <a href="#"><img src="images/twitter-icon.png" alt="Twitter"></a>
             </div>
-            <div class="footer-section">
-                <h4>Quick Links</h4>
-                <ul>
-                    <li><a href="about.html">Our Mission</a></li>
-                    <li><a href="blog.html">Eco-Blog</a></li>
-                    <li><a href="partners.html">Partners</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Follow Us</h4>
-                <!-- Add social media icons here -->
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Mazingira Clubs. All rights reserved.</p>
         </div>
     </footer>
-
-    <!-- Animated Elements -->
-    <div class="savannah-elements">
-        <div class="acacia-tree left"></div>
-        <div class="acacia-tree right"></div>
-        <div class="animated-bird"></div>
-    </div>
 </body>
 </html>
