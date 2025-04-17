@@ -421,6 +421,31 @@
             if(e.key === 'ArrowLeft') prevCard();
             if(e.key === 'ArrowRight') nextCard();
         });
+        // Sample interactivity functions
+let treesPlanted = 0;
+
+function plantTree() {
+    treesPlanted++;
+    document.querySelector('.thermometer').textContent = 
+        `🌡️: ${Math.max(15, 25 - treesPlanted)}°C`;
+    if(treesPlanted % 5 === 0) {
+        document.querySelector('.climate-game').innerHTML += '🌳';
+    }
+}
+
+function growCrop(element) {
+    const counter = element.querySelector('.count');
+    counter.textContent = parseInt(counter.textContent) + 1;
+    if(parseInt(counter.textContent) >= 5) {
+        element.style.transform = 'scale(1.2)';
+        setTimeout(() => element.style.transform = '', 500);
+    }
+}
+
+function switchEnergy(btn) {
+    document.querySelectorAll('.energy-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+}
     </script>
 </body>
 </html>
