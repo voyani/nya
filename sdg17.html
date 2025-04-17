@@ -160,44 +160,211 @@
             </div>
 
             <!-- SDG Cards -->
-            <div class="sdg-card active" data-sdg="1">
-                <div class="sdg-number">Goal 1</div>
-                <div class="sdg-icon">🚫💸</div>
-                <h2>No Poverty</h2>
-                <p>Help make sure everyone has what they need to live well!</p>
-            </div>
+            <!-- SDG 1-5 -->
+<div class="sdg-card active" data-sdg="1">
+    <div class="sdg-number">Goal 1</div>
+    <div class="sdg-icon">🏠❤️</div>
+    <h2>No Poverty</h2>
+    <p>Let's build a world where everyone has safe homes and enough money for needs!</p>
+    <button class="sdg-action" onclick="buildHouse(this)">Click to Build a House 🛠️</button>
+</div>
 
-            <div class="sdg-card" data-sdg="2">
-                <div class="sdg-number">Goal 2</div>
-                <div class="sdg-icon">🍎🥦</div>
-                <h2>Zero Hunger</h2>
-                <p>Let's grow enough food for everyone, everywhere!</p>
-            </div>
+<div class="sdg-card" data-sdg="2">
+    <div class="sdg-number">Goal 2</div>
+    <div class="sdg-icon">🍎📈</div>
+    <h2>Zero Hunger</h2>
+    <p>Help us grow a digital farm to feed everyone!</p>
+    <div class="farm-game">
+        <div class="crop" onclick="growCrop(this)">🌱<span class="count">0</span></div>
+        <div class="crop" onclick="growCrop(this)">🌾<span class="count">0</span></div>
+        <div class="crop" onclick="growCrop(this)">🍎<span class="count">0</span></div>
+    </div>
+</div>
 
-            <!-- Add remaining SDG cards 3-17 following same pattern -->
+<div class="sdg-card" data-sdg="3">
+    <div class="sdg-number">Goal 3</div>
+    <div class="sdg-icon">🏥💪</div>
+    <h2>Healthy Lives</h2>
+    <p>Match the healthy habits to boost community health!</p>
+    <div class="matching-game">
+        <div class="habit" data-match="water">💧 Daily Water</div>
+        <div class="habit" data-match="veggies">🥦 Eat Veggies</div>
+        <div class="habit" data-match="exercise">🏃 Daily Exercise</div>
+    </div>
+</div>
 
-            <div class="sdg-card" data-sdg="13">
-                <div class="sdg-number">Goal 13</div>
-                <div class="sdg-icon">🌡️🌎</div>
-                <h2>Climate Action</h2>
-                <p>Protect our planet from getting too warm!</p>
-            </div>
+<div class="sdg-card" data-sdg="4">
+    <div class="sdg-number">Goal 4</div>
+    <div class="sdg-icon">📚🌍</div>
+    <h2>Quality Education</h2>
+    <p>Drag the books to the school backpack! 🎒</p>
+    <div class="book-drag">
+        <div class="book" draggable="true">📕</div>
+        <div class="book" draggable="true">📗</div>
+        <div class="book" draggable="true">📘</div>
+        <div class="drop-zone">🎒</div>
+    </div>
+</div>
 
-            <div class="sdg-card" data-sdg="14">
-                <div class="sdg-number">Goal 14</div>
-                <div class="sdg-icon">🐠🌊</div>
-                <h2>Life Below Water</h2>
-                <p>Keep our oceans clean and full of life!</p>
-            </div>
+<div class="sdg-card" data-sdg="5">
+    <div class="sdg-number">Goal 5</div>
+    <div class="sdg-icon">👧👦</div>
+    <h2>Gender Equality</h2>
+    <p>Balance the scale of opportunities!</p>
+    <div class="balance-scale">
+        <div class="side girl" data-count="0">👧</div>
+        <div class="side boy" data-count="0">👦</div>
+        <button onclick="addOpportunity('girl')">+ Girl</button>
+        <button onclick="addOpportunity('boy')">+ Boy</button>
+    </div>
+</div>
 
-            <div class="sdg-card" data-sdg="15">
-                <div class="sdg-number">Goal 15</div>
-                <div class="sdg-icon">🌳🦁</div>
-                <h2>Life on Land</h2>
-                <p>Protect forests and all land animals!</p>
-            </div>
+<!-- SDG 6-10 -->
+<div class="sdg-card" data-sdg="6">
+    <div class="sdg-number">Goal 6</div>
+    <div class="sdg-icon">💧🌊</div>
+    <h2>Clean Water</h2>
+    <p>Fix the leaking pipes to save water!</p>
+    <div class="pipe-game">
+        <div class="pipe leak" onclick="fixPipe(this)">🚰💦</div>
+        <div class="water-counter">Saved: 0L</div>
+    </div>
+</div>
 
-            <!-- Add remaining SDG cards -->
+<div class="sdg-card" data-sdg="7">
+    <div class="sdg-number">Goal 7</div>
+    <div class="sdg-icon">☀️💡</div>
+    <h2>Clean Energy</h2>
+    <p>Switch to renewable energy sources!</p>
+    <div class="energy-switch">
+        <button class="energy-btn coal" onclick="switchEnergy(this)">🏭</button>
+        <button class="energy-btn solar active" onclick="switchEnergy(this)">☀️</button>
+        <button class="energy-btn wind" onclick="switchEnergy(this)">🌪️</button>
+    </div>
+</div>
+
+<div class="sdg-card" data-sdg="8">
+    <div class="sdg-number">Goal 8</div>
+    <div class="sdg-icon">💼📈</div>
+    <h2>Good Jobs</h2>
+    <p>Help match skills to dream jobs!</p>
+    <div class="job-matcher">
+        <div class="skill" data-job="doctor">❤️</div>
+        <div class="skill" data-job="teacher">📚</div>
+        <div class="skill" data-job="engineer">⚙️</div>
+    </div>
+</div>
+
+<div class="sdg-card" data-sdg="9">
+    <div class="sdg-number">Goal 9</div>
+    <div class="sdg-icon">🏗️💡</div>
+    <h2>Innovation</h2>
+    <p>Build your dream sustainable city!</p>
+    <div class="city-builder">
+        <button onclick="addBuilding('solar')">☀️</button>
+<button onclick="addBuilding('park')">🌳</button>
+<button onclick="addBuilding('school')">🏫</button>
+        <div class="city-preview"></div>
+    </div>
+</div>
+
+<div class="sdg-card" data-sdg="10">
+    <div class="sdg-number">Goal 10</div>
+    <div class="sdg-icon">🌍🤝</div>
+    <h2>Reduced Inequalities</h2>
+    <p>Balance the resource distribution!</p>
+    <div class="equality-scale">
+        <div class="community" data-resources="3">🏘️</div>
+        <div class="community" data-resources="8">🏙️</div>
+        <button onclick="shareResources()">Share 💞</button>
+    </div>
+</div>
+
+<!-- SDG 11-17 -->
+<div class="sdg-card" data-sdg="11">
+    <div class="sdg-number">Goal 11</div>
+    <div class="sdg-icon">🏙️🌳</div>
+    <h2>Sustainable Cities</h2>
+    <p>Drag green spaces into the city!</p>
+    <div class="city-planner">
+        <div class="park" draggable="true">🌳</div>
+        <div class="bike-lane" draggable="true">🚲</div>
+        <div class="drop-zone">🏙️</div>
+    </div>
+</div>
+
+<div class="sdg-card" data-sdg="12">
+    <div class="sdg-number">Goal 12</div>
+    <div class="sdg-icon">♻️🛍️</div>
+    <h2>Responsible Consumption</h2>
+    <p>Sort the recyclables correctly!</p>
+    <div class="recycling-game">
+        <div class="item plastic" onclick="sortItem(this)">🥤</div>
+        <div class="item paper" onclick="sortItem(this)">📰</div>
+        <div class="bin plastic">♳</div>
+        <div class="bin paper">♴</div>
+    </div>
+</div>
+
+<div class="sdg-card" data-sdg="13">
+    <div class="sdg-number">Goal 13</div>
+    <div class="sdg-icon">🌡️🌎</div>
+    <h2>Climate Action</h2>
+    <p>Cool down the planet by planting trees!</p>
+    <div class="climate-game">
+        <div class="thermometer">🌡️: 25°C</div>
+        <button onclick="plantTree()">Plant Tree 🌳</button>
+    </div>
+</div>
+
+<div class="sdg-card" data-sdg="14">
+    <div class="sdg-number">Goal 14</div>
+    <div class="sdg-icon">🐠🌊</div>
+    <h2>Life Below Water</h2>
+    <p>Clean the ocean by collecting trash!</p>
+    <div class="ocean-cleanup">
+        <div class="trash">🗑️</div>
+        <div class="trash">🥤</div>
+        <div class="net" ondragover="cleanTrash(event)">🕸️</div>
+    </div>
+</div>
+
+<div class="sdg-card" data-sdg="15">
+    <div class="sdg-number">Goal 15</div>
+    <div class="sdg-icon">🌳🦁</div>
+    <h2>Life on Land</h2>
+    <p>Protect endangered animals!</p>
+    <div class="animal-protector">
+        <div class="animal" onclick="protectAnimal(this)">🦁</div>
+        <div class="animal" onclick="protectAnimal(this)">🐘</div>
+        <div class="animal" onclick="protectAnimal(this)">🦏</div>
+    </div>
+</div>
+
+<div class="sdg-card" data-sdg="16">
+    <div class="sdg-number">Goal 16</div>
+    <div class="sdg-icon">⚖️✨</div>
+    <h2>Peace & Justice</h2>
+    <p>Help resolve conflicts peacefully!</p>
+    <div class="peace-game">
+        <div class="conflict">😠</div>
+        <button onclick="resolveConflict()">Use Kind Words 💬</button>
+        <div class="resolution">😊</div>
+    </div>
+</div>
+
+<div class="sdg-card" data-sdg="17">
+    <div class="sdg-number">Goal 17</div>
+    <div class="sdg-icon">🤝🌐</div>
+    <h2>Global Partnerships</h2>
+    <p>Connect countries to share solutions!</p>
+    <div class="connection-game">
+        <div class="country" data-solution="solar">☀️</div>
+        <div class="country" data-solution="water">💧</div>
+        <div class="connection-line"></div>
+        <button onclick="createPartnership()">Connect! 🌍</button>
+    </div>
+</div>
 
             <div class="sdg-dots" id="sdgDots"></div>
         </div>
