@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educator Resources | Mazingira Cubs</title>
+    <style>
+        /* Inherit color variables and base styles */
+        :root {
+            --jungle-green: #2ecc71;
+            --sunny-yellow: #f1c40f;
+            --deep-forest: #1d5f2c;
+            --earth-brown: #784212;
+            --sky-blue: #3498db;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3)),
+                url('images/onboardingBackground.jpg') center/cover fixed;
+            font-family: 'Bubblegum Sans', cursive;
+            color: white;
+            min-height: 100vh;
+        }
+
+        /* Teacher Hero Section */
+        .teacher-hero {
+            background: rgba(0, 40, 0, 0.8);
+            backdrop-filter: blur(8px);
+            padding: 4rem 2rem;
+            text-align: center;
+            border-bottom: 3px solid var(--sunny-yellow);
+        }
+
+        .teacher-hero h1 {
+            font-size: 2.8rem;
+            text-shadow: 2px 2px var(--deep-forest);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Tab System */
+        .tab-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+
+        .tab-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-button {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+        }
+
+        .tab-button.active {
+            background: var(--jungle-green);
+            box-shadow: 0 0 20px rgba(46, 204, 113, 0.4);
+        }
+
+        .tab-content {
+            display: none;
+            background: rgba(0, 40, 0, 0.7);
+            backdrop-filter: blur(8px);
+            padding: 2rem;
+            border-radius: 20px;
+            border: 2px solid var(--sunny-yellow);
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        /* Resource Cards */
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .resource-card {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 15px;
+            border: 2px dashed var(--sunny-yellow);
+            transition: transform 0.3s ease;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .activity-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .activity-list li {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .icon {
+            font-size: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .teacher-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .tab-button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+
+    <!-- Hero Section -->
+    <section class="teacher-hero">
+        <h1>Empowering Environmental Educators</h1>
+        <p>Discover tools and resources to inspire the next generation of eco-warriors!</p>
+    </section>
+
+    <!-- Tab System -->
+    <div class="tab-container">
+        <div class="tab-buttons">
+            <button class="tab-button active" onclick="openTab(event, 'teaching-methods')">🎨 Creative Teaching</button>
+            <button class="tab-button" onclick="openTab(event, 'resources')">📚 Digital Resources</button>
+            <button class="tab-button" onclick="openTab(event, 'activities')">🌳 Field Activities</button>
+        </div>
+
+        <!-- Teaching Methods Tab -->
+        <div id="teaching-methods" class="tab-content active">
+            <h2>Fun & Engaging Teaching Ideas</h2>
+            <div class="resource-grid">
+                <div class="resource-card">
+                    <div class="icon">🌱</div>
+                    <h3>Eco Storytelling</h3>
+                    <p>Use traditional African folktales to teach conservation principles</p>
+                </div>
+                <div class="resource-card">
+                    <div class="icon">🎭</div>
+                    <h3>Role Play Games</h3>
+                    <p>Simulate ecosystem interactions with student-led scenarios</p>
+                </div>
+                <div class="resource-card">
+                    <div class="icon">🎨</div>
+                    <h3>Art Projects</h3>
+                    <p>Create recycled material sculptures and environmental murals</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Digital Resources Tab -->
+        <div id="resources" class="tab-content">
+            <h2>Educational Resources</h2>
+            <div class="resource-grid">
+                <a href="clubhouse.html" class="resource-card">
+                    <h3>📚 Eco Library</h3>
+                    <p>Interactive lessons on African flora and fauna</p>
+                </a>
+                <a href="activitiesNgames.html" class="resource-card">
+                    <h3>🎮 Learning Games</h3>
+                    <p>Curriculum-aligned environmental games</p>
+                </a>
+                <a href="savePlants.html" class="resource-card">
+                    <h3>🌿 Plant Database</h3>
+                    <p>Native species conservation guides</p>
+                </a>
+            </div>
+        </div>
+
+        <!-- Field Activities Tab -->
+        <div id="activities" class="tab-content">
+            <h2>Hands-On Field Activities</h2>
+            <ul class="activity-list">
+                <li>
+                    <span class="icon">🌴</span>
+                    <div>
+                        <h3>Tree Planting Days</h3>
+                        <p>Monthly native tree planting initiatives</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="icon">🏖️</span>
+                    <div>
+                        <h3>Beach Cleanups</h3>
+                        <p>Coastal conservation weekends</p>
+                    </div>
+                </li>
+                <li>
+                    <span class="icon">🔬</span>
+                    <div>
+                        <h3>Eco Monitoring</h3>
+                        <p>Student-led biodiversity surveys</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+<!-- Header -->
+<footer class="main-header">
+    <nav>
+        <div class="logo">
+            <img src="images/logo.png" alt="Mazingira Clubs Logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">🏠 Home</a></li>
+            <li><a href="clubhouse.html">🌿 Clubhouse</a></li>
+        </ul>
+    </nav>
+</footer>
+    <script>
+        function openTab(evt, tabName) {
+            // Tab switching logic
+            const tabContents = document.querySelectorAll('.tab-content');
+            const tabButtons = document.querySelectorAll('.tab-button');
+            
+            tabContents.forEach(content => content.classList.remove('active'));
+            tabButtons.forEach(button => button.classList.remove('active'));
+            
+            document.getElementById(tabName).classList.add('active');
+            evt.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
