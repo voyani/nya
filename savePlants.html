@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant Protectors | Mazingira Cubs</title>
+    <style>
+        /* Base Styles */
+        :root {
+            --jungle-green: #2ecc71;
+            --sunny-yellow: #f1c40f;
+            --sky-blue: #3498db;
+            --earth-brown: #a87d5b;
+            --card-bg: rgba(255, 255, 255, 0.9);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Bubblegum Sans', cursive;
+            background: 
+                linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.05)),
+                url('images/onboardingBackground.jpg') center/cover fixed;
+            color: #2C3E50;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Header Styles */
+        .main-header {
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1rem 2rem;
+            backdrop-filter: blur(8px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo img {
+            height: 60px;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            padding: 0;
+        }
+
+        .nav-links a {
+            color: #2C3E50;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background: var(--jungle-green);
+            color: white;
+        }
+
+        /* Plant Hero Section */
+        .plant-hero {
+            background: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.1)),
+                       url('images/plant-hero.jpg') center/cover;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            border-radius: 20px;
+            margin: 2rem;
+            border: 3px solid var(--sunny-yellow);
+        }
+
+        .plant-hero h1 {
+            font-family: 'Baloo 2', cursive;
+            color: var(--jungle-green);
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
+        }
+
+        /* Plant Cards */
+        .plant-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .plant-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            text-align: center;
+            border: 2px solid var(--jungle-green);
+        }
+
+        .plant-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .plant-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid var(--sunny-yellow);
+            margin: 0 auto 1rem;
+            object-fit: cover;
+        }
+
+        /* Buttons */
+        .cta-button {
+            background: var(--jungle-green);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            border: none;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(46, 204, 113, 0.4);
+        }
+
+        .seed-button {
+            background: var(--sunny-yellow);
+            color: #2C3E50;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.2rem;
+        }
+
+        .seed-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(241, 196, 15, 0.4);
+        }
+
+        /* Progress Elements */
+        .progress-vine {
+            height: 8px;
+            background: #e0e0e0;
+            margin: 1rem 0;
+            border-radius: 4px;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .progress-vine::after {
+            content: '';
+            display: block;
+            height: 100%;
+            background: var(--jungle-green);
+            border-radius: 4px;
+            width: 65%;
+        }
+
+        /* Footer */
+        .main-footer {
+            background: rgba(255,255,255,0.9);
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+            border-top: 3px solid var(--sunny-yellow);
+        }
+
+        .footer-section {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-section a {
+            color: #2C3E50;
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+
+        @media (max-width: 768px) {
+            .plant-hero {
+                margin: 1rem;
+                height: 50vh;
+            }
+
+            .plant-hero h1 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .plant-grid {
+                grid-template-columns: 1fr;
+                padding: 1rem;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="main-header">
+        <nav>
+            <div class="logo">
+                <img src="images/logo-plant.png" alt="Plant Protectors Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="clubhouse.html">🏠 Clubhouse</a></li>
+                <li><a href="games.html">🎮 Games</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="plant-hero">
+        <div>
+            <h1>🌱 Meet Africa's Plant Superheroes! 🌿</h1>
+            <button class="seed-button">Plant Your First Seed 🌻</button>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="plant-grid">
+        <!-- Baobab Card -->
+        <article class="plant-card">
+            <img src="images/baobab.png" alt="Baobab Tree" class="plant-avatar">
+            <h2>The Ancient Baobab</h2>
+            <div class="progress-vine"></div>
+            <p>🕰️ 2000+ years old<br>
+               💧 Stores 120,000 liters of water!<br>
+               🌍 Home to 300+ animal species</p>
+            
+            <a class="cta-button" href="360 baobab/360.html">360° Explore</a>
+        </article>
+
+        <!-- Desert Rose Card -->
+        <article class="plant-card">
+            <img src="images/desert-rose.png" alt="Desert Rose" class="plant-avatar">
+            <h2>Desert Survivor 🌵</h2>
+            <div class="progress-vine"></div>
+            <p>🔥 Survives 50°C heat<br>
+               💖 Used in traditional medicine<br>
+               🌸 Blooms in extreme drought</p>
+            <button class="cta-button">Watch Bloom 🌺</button>
+        </article>
+
+        <!-- Growth Simulator -->
+        <article class="plant-card">
+            <h2>Grow Your Virtual Garden</h2>
+            <div id="garden-container">
+                <div class="plant-stage" style="font-size: 3rem">🌱</div>
+            </div>
+            <button class="cta-button" onclick="waterPlant()">Water Me! 💦</button>
+        </article>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-section">
+            <h3>More Adventures</h3>
+            <a href="animals.html">🦁 Wildlife Guardians</a>
+            <a href="recycling.html">♻️ Recycling Heroes</a>
+        </div>
+        <div class="footer-bottom">
+            <p>🌍 Together we grow! © 2024 Mazingira Cubs</p>
+        </div>
+    </footer>
+
+    <script>
+        let growthStage = 0;
+        const plantStages = ['🌱', '🌿', '🌳'];
+        
+        function waterPlant() {
+            const garden = document.getElementById('garden-container');
+            if(growthStage < plantStages.length) {
+                garden.innerHTML = `<div class="plant-stage" style="font-size: ${(growthStage+1)*1.5}rem">
+                    ${plantStages[growthStage]}
+                </div>`;
+                growthStage++;
+            }
+            if(growthStage === plantStages.length) {
+                alert('🎉 Your plant is fully grown!');
+                growthStage = 0;
+            }
+        }
+    </script>
+</body>
+</html>
