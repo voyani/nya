@@ -63,6 +63,8 @@
             cursor: pointer;
             transition: all 0.3s ease;
             font-size: 1.1rem;
+            text-decoration: none;
+            display: inline-block;
         }
 
         .tab-button.active {
@@ -131,51 +133,13 @@
                 width: 100%;
             }
         }
-        /* Add SDG-specific styles */
-        .sdg-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .sdg-card {
-            background: rgba(255,255,255,0.1);
-            padding: 1rem;
-            border-radius: 15px;
-            border: 1px solid var(--sky-blue);
-            transition: all 0.3s ease;
-            position: relative;
-            min-height: 120px;
-        }
-
-        .sdg-number {
-            position: absolute;
-            top: -10px;
-            left: -10px;
-            background: var(--sunny-yellow);
-            color: #2C3E50;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: grid;
-            place-items: center;
-            font-weight: bold;
-        }
-
-        .sdg-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 15px rgba(52, 152, 219, 0.3);
-        }
     </style>
 </head>
 <body>
-    
-
     <!-- Hero Section -->
     <section class="teacher-hero">
         <h1>Empowering Environmental Educators</h1>
-        <p>Mazingira Clubs at home and school , are resources that help to support teachers and parents deliver information about environment and sustainabilit for the future generation. </p>
+        <p>Mazingira Clubs at home and school are resources that help support teachers and parents deliver information about environment and sustainability for future generations.</p>
         <p>Discover tools and resources to inspire the next generation of eco-warriors!</p>
     </section>
 
@@ -185,7 +149,7 @@
             <button class="tab-button active" onclick="openTab(event, 'teaching-methods')">🎨 Creative Teaching</button>
             <button class="tab-button" onclick="openTab(event, 'resources')">📚 Digital Resources</button>
             <button class="tab-button" onclick="openTab(event, 'activities')">🌳 Field Activities</button>
-            <button class="tab-button" onclick="openTab(event, 'sdgs')">🌍 SDGs Guide</button>
+            <a href="sdg17.html" class="tab-button">🌍 SDGs Guide</a>
         </div>
 
         <!-- Teaching Methods Tab -->
@@ -228,40 +192,7 @@
                 </a>
             </div>
         </div>
-<!-- New SDGs Tab Content -->
-<div id="sdgs" class="tab-content">
-    <h2>UN Sustainable Development Goals</h2>
-    <div class="sdg-grid">
-        <!-- SDG 1-17 -->
-        <div class="sdg-card">
-            <div class="sdg-number">1</div>
-            <h3>No Poverty</h3>
-            <p>End poverty in all its forms</p>
-        </div>
-        <div class="sdg-card">
-            <div class="sdg-number">2</div>
-            <h3>Zero Hunger</h3>
-            <p>End hunger and improve nutrition</p>
-        </div>
-        <!-- Add remaining SDGs 3-17 following same pattern -->
-        <div class="sdg-card">
-            <div class="sdg-number">13</div>
-            <h3>Climate Action</h3>
-            <p>Take urgent action to combat climate change</p>
-        </div>
-        <div class="sdg-card">
-            <div class="sdg-number">14</div>
-            <h3>Life Below Water</h3>
-            <p>Conserve marine resources</p>
-        </div>
-        <div class="sdg-card">
-            <div class="sdg-number">15</div>
-            <h3>Life on Land</h3>
-            <p>Protect terrestrial ecosystems</p>
-        </div>
-        <!-- Continue with other SDGs -->
-    </div>
-</div>
+
         <!-- Field Activities Tab -->
         <div id="activities" class="tab-content">
             <h2>Hands-On Field Activities</h2>
@@ -290,21 +221,22 @@
             </ul>
         </div>
     </div>
-<!-- Header -->
-<footer class="main-header">
-    <nav>
-        <div class="logo">
-            <img src="images/logo.png" alt="Mazingira Clubs Logo">
-        </div>
-        <ul class="nav-links">
-            <li><a href="index.html">🏠 Home</a></li>
-            <li><a href="clubhouse.html">🌿 Clubhouse</a></li>
-        </ul>
-    </nav>
-</footer>
+
+    <!-- Footer -->
+    <footer class="main-header">
+        <nav>
+            <div class="logo">
+                <img src="images/logo.png" alt="Mazingira Clubs Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">🏠 Home</a></li>
+                <li><a href="clubhouse.html">🌿 Clubhouse</a></li>
+            </ul>
+        </nav>
+    </footer>
+
     <script>
         function openTab(evt, tabName) {
-            // Tab switching logic
             const tabContents = document.querySelectorAll('.tab-content');
             const tabButtons = document.querySelectorAll('.tab-button');
             
